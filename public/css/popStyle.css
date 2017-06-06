@@ -1,0 +1,105 @@
+
+
+.panel-mostPopular {
+    border-color: #303030;
+    margin-top: 10px;
+    margin-right: 6%;
+    margin-left: 6%;
+}
+.panel-mostPopular > .panel-heading {
+    background-image: url("header.png") !important;
+    color: black;
+    border-color: #303030;
+    text-shadow: 0 0 11px white;
+}
+
+.panel-newSong {
+    border-color: #303030;
+    margin-top: 70px;
+}
+.panel-newSong > .panel-heading {
+    background-image: url("header.png") !important;
+    color: black;
+    border-color: #303030;
+    text-shadow: 0 0 11px white;
+}
+
+#page {
+    -webkit-animation: fadeEffect 2s;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+body {
+    background-image: url("elegant.jpg") !important;
+    background-attachment: fixed;
+}
+
+
+#playerFrame {
+    width: 100%;
+    padding: 1px;
+    border: 1px solid gray;
+    margin: 0;
+    background: white;
+    bottom: 0;
+    position: fixed;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
+
+.left{display:inline-block}
+.right{display:inline-block; float:right}
+
+.grow {
+          height: 57px;
+          width: 100%;
+          float: left;
+          position: relative;
+          transition: height 0.5s;
+          -webkit-transition: height 0.5s;
+          text-align: left;
+          overflow: hidden;
+        }
+        .grow:hover {
+          height: 190px;
+        }
+
+.panel-mostPopular {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.panel-mostPopular:hover {
+    box-shadow: 0 8px 56px 0 rgba(0,0,0,0.2);
+}
+
+.panel-newSong {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.panel-newSong:hover {
+    box-shadow: 0 8px 56px 0 rgba(0,0,0,0.2);
+}
+
+
+.status{
+    display: none;
+}
