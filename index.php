@@ -61,6 +61,7 @@
 				      </span>
                         </div>
                     </div>
+                    <button class="btn btn-primary" type="button">Login</button>
                 </form>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -114,6 +115,66 @@
         </div>
     </div>
     <div class="clearfix"></div>
+
+    <!--Div for slide show-->
+    <div style="margin-top: 50px;">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                    <a href="data/song.html">
+                        <img src="public/img/slide/img1.jpg" alt="..." style="margin: auto;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Let the world know</h3>
+                    </div>
+                </div>
+                <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                    <a href="data/song.html">
+                        <img src="public/img/slide/img2.jpg" alt="..." style="margin: auto;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>The End Is Where We Begin</h3>
+                    </div>
+                </div>
+                <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                    <a href="data/song.html">
+                        <img src="public/img/slide/img3.jpg" alt="..." style="margin: auto;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>In The End</h3>
+                    </div>
+                </div>
+                <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                    <a href="data/song.html">
+                        <img src="public/img/slide/img4.jpg" alt="..." style="margin: auto;">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Losing My Mind</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- Indicators -->
+            <ol class="carousel-indicators" style="z-index: 1">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Controls left or right -->
+            <a class="left carousel-control wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only wow slideInLeft">Previous</span>
+            </a>
+            <a class="right carousel-control wow slideInLeft" href="#carousel-example-generic" data-wow-duration="1.5s" data-wow-delay="0.1s" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
     <div style="width: 100%; margin-left: auto; margin-right: auto;">
         <!--Div for slide show-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
