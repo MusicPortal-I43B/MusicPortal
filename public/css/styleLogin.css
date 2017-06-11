@@ -2,10 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Cabin:700);
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
-body {
-    background: #eee;
-}
-
 #wrapper {
     margin: 90px auto;
     width: 300px;
@@ -19,7 +15,7 @@ body {
 }
 
 .box {
-    background: #fff;
+    background: url("../img/white-background.jpg");
     padding: 25px;
     width: 100%;
     position: absolute;
@@ -78,22 +74,6 @@ body {
     transform: translate(120px, 0);
     opacity: 0;
 }
-
-/*.front {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    right:0;
-}*/
-
 
 .default {
     text-align: center;

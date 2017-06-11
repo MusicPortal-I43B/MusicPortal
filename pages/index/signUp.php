@@ -12,21 +12,31 @@
     <link rel="stylesheet" href="../../public/css/styleLogin.css">
 </head>
 <body>
+<!--Div for slide show-->
+<link rel="stylesheet" href="../../public/css/SlideShowStyle.css">
+<ul class="slideshow">
+    <li><span>Image 01</span></li>
+    <li><span>Image 02</span></li>
+    <li><span>Image 03</span></li>
+    <li><span>Image 04</span></li>
+    <li><span>Image 05</span></li>
+    <li><span>Image 06</span></li>
+</ul>
 <div id="wrapper1">
-    <form enctype="multipart/form-data" name="registerForm" method="post" action="processRegister.php" id="login" class="front box">
+    <form enctype="multipart/form-data" name="registerForm" method="post" action="processRegister.php" id="login" class="box">
         <div class="default"><i class="icon-briefcase"></i><h1>Press Register</h1></div>
         <input type="text" placeholder="username" name="username" autocomplete="off" required/>
         <input type="password" placeholder="password" name="password" id="password" autocomplete="off" required/>
         <input type="password" placeholder="confirm password" name="confirm_password" id="confirm_password" autocomplete="off" required/>
         <select name="gender" id="gender" required>
-            <option value="">Sex</option>
+            <option value="">Gender</option>
             <option value="female">&nbsp;&nbsp;Female</option>
             <option value="male">&nbsp;&nbsp;Male</option>
         </select>
         <label for="name" class="btn" style="text-align: left;">Select a profile image</label>
         <input type="file" id="name" name="photo" style="visibility:hidden;">
         <button type="submit" class="login" name="submit" id="submit"><i class="icon-ok"></i></button>
-        <a href="../../index.php" style="margin-top: 20px; float: right;">I have an account</a>
+        <a href="loginPage.php" style="margin-top: 20px; float: right;">I have an account</a>
     </form>
 </div>
 <script>
@@ -44,30 +54,6 @@
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
 </script>
-<!--<script>
-    var numUser = 0;
-    numUser =
-<?php
-/*if (isset($_POST['username'])) {
-    $username = $_POST['username'];
-    require_once('../vendors/config/dbconfig.php');
-    $sqlTest = "select * from users where username='$username'";
-    $result = $conn->query($sqlTest);
-//    echo $result->num_rows;
-    if ($result->num_rows > 0) {
-        echo $result->num_rows;
-    }
-}
-*/?>;
-    if (numUser > 0){
-        var username = document.getElementById('username');
-        function validateUsername(){
-            username.setCustomValidity('This username existed!');
-        }
-        username.onkeyup = validateUsername;
-    }
-    alert("khos");
-</script>-->
 <script type="text/javascript" src="../../public/vendors/jquery/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="../../public/vendors/bootstrap/js/bootstrap.min.js"></script>
 </body>
