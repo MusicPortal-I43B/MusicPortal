@@ -11,60 +11,50 @@
     <link rel="stylesheet" type="text/css" href="public/css/songStyle.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/artists.css"> -->
     <link rel="stylesheet" href="public/vendors/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" />
+    <!-- Audio Player CSS & Scripts -->
+    <!--<script src="public/js/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="public/css/AudioPlayerStyle.css" media="screen">-->
     <!-- Point to external css file -->
 </head>
 <body>
+<!--<div class="audio-player">
+    <h1>Demo - Preview Song</h1>
+    <img class="cover" src="public/uploads/album_img/shapeofyou.jpg" alt="" style="width: 110px; height: 114px;">
+    <audio id="audio-player" src="public/uploads/media/shapeofyou.mp3" type="audio/mp3" controls="controls"></audio>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause','volume','progress'],
+            audioVolume: 'horizontal',
+            audioWidth: 400,
+            audioHeight: 120
+        });
+    });
+</script>-->
 <div id="wrapper">
-    <!--Navigation Bar section-->
-    <nav class="navbar navbar-inverse" style="width: 100%;position: fixed;z-index: 2">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand glyphicon glyphicon-home" aria-hidden="true" href="index.php"></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genres <span class="caret"></span></a>
-                        <ul class="dropdown-menu wow fadeInDown" data-wow-duration="0.6s" data-wow-delay="0.1s">
-                            <li><a href="pages/genres/rock.php">Rock</a></li>
-                            <li><a href="pages/genres/pop.php">Pop</a></li>
-                            <li><a href="pages/genres/dance.php">Dance</a></li>
-                            <li><a href="pages/genres/hiphop.php">Hip Hop</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="pages/song.php">Songs </a></li>
-                    <li><a href="pages/albums.php">Albums </a></li>
-                    <li><a href="pages/artists.php">Artists </a></li>
-                    <li><a href="pages/aboutus.php">About us</a></li>
-                </ul>
-                <!--Search Bar section-->
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <span class="input-group-btn">
-				                <button class="btn btn-default" type="button">Go!</button>
-				            </span>
-                        </div>
-                        <a class="btn btn-success" type="button" href="pages/index/loginPage.php">Login</a>
-                    </div>
-                </form>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="home">Home</a>
+        <a href="#" id="blog">Blog</a>
+        <a href="#" id="projects">Projects</a>
+        <a href="#" id="contact">Contact</a>
+        <a href="pages/aboutus.php" id="about">About</a>
+    </div>
+    <div id="logInnav" class="sidenav">
+        <a href="pages/index/loginPage.php" id="login">Login</a>
+        <a href="pages/index/signUp.php" id="signup">Signup</a>
+    </div>
     <div class="clearfix"></div>
     <div style="width: 100%; margin-left: auto; margin-right: auto;">
         <!--Div for slide show-->
-        <div style="margin-top: 50px;">
+        <div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                    <div class="item active wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000" style="width: 100%; height: 100%">
                         <a href="data/song.html">
-                            <img src="public/img/slide/img1.jpg" alt="..." style="margin: auto;">
+                            <img src="public/img/slide/img1.jpg" alt="..." style="margin: auto; width: 100%;">
                         </a>
                         <div class="carousel-caption">
                             <h3>Let the world know</h3>
@@ -72,7 +62,7 @@
                     </div>
                     <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
                         <a href="data/song.html">
-                            <img src="public/img/slide/img2.jpg" alt="..." style="margin: auto;">
+                            <img src="public/img/slide/img2.jpg" alt="..." style="margin: auto; width: 100%;">
                         </a>
                         <div class="carousel-caption">
                             <h3>The End Is Where We Begin</h3>
@@ -80,7 +70,7 @@
                     </div>
                     <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
                         <a href="data/song.html">
-                            <img src="public/img/slide/img3.jpg" alt="..." style="margin: auto;">
+                            <img src="public/img/slide/img3.jpg" alt="..." style="margin: auto; width: 100%;">
                         </a>
                         <div class="carousel-caption">
                             <h3>In The End</h3>
@@ -88,7 +78,7 @@
                     </div>
                     <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
                         <a href="data/song.html">
-                            <img src="public/img/slide/img4.jpg" alt="..." style="margin: auto;">
+                            <img src="public/img/slide/img4.jpg" alt="..." style="margin: auto; width: 100%;">
                         </a>
                         <div class="carousel-caption">
                             <h3>Losing My Mind</h3>
@@ -104,78 +94,37 @@
                 </ol>
 
                 <!-- Controls left or right -->
-                <a class="left carousel-control wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" href="#carousel-example-generic" role="button" data-slide="prev">
+                <a class="left carousel-control wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" href="#carousel-example-generic" role="button" data-slide="prev" style="background: none;">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only wow slideInLeft">Previous</span>
+                    <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control wow slideInLeft" href="#carousel-example-generic" data-wow-duration="1.5s" data-wow-delay="0.1s" role="button" data-slide="next">
+                <a class="right carousel-control wow slideInLeft" href="#carousel-example-generic" data-wow-duration="1.5s" data-wow-delay="0.1s" role="button" data-slide="next" style="background: none;">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
         </div>
     </div>
-
     <!--Div for artists block-->
     <div class="container">
         <h3 class="artiststext">ARTISTS</h3>
         <div class="scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s" style="margin: 0px; padding: 0px">
-            <!-- <dir class="row"> -->
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/cover-1 (copy).jpeg">
-                    <div class="overlay1">
-                        <h2>Charlie Puth</h2>
-                        <a class="info" href="data/artists (charlie).html">link here</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/cover-2 (copy).jpg">
-                    <div class="overlay1">
-                        <h2>Thousand Foot Krutch</h2>
-                        <a class="info" href="#">link here</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/cover-3 (copy).jpg">
-                    <div class="overlay1">
-                        <h2>Skrillex</h2>
-                        <a class="info" href="#">link here</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/cover-4 (copy).jpg">
-                    <div class="overlay1">
-                        <h2>The Weeknd</h2>
-                        <a class="info" href="#">link here</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/cover-5 (copy).jpg">
-                    <div class="overlay1">
-                        <h2>james</h2>
-                        <a class="info" href="#">link here</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/more_btn.png">
-                    <div class="overlay1">
-                        <h2>View more</h2>
-                        <a class="info" href="data/artists.html">link here</a>
-                    </div>
-                </div>
-            </div>
-            <!-- </dir> -->
+            <?php
+            require_once ('config/dbconfig.php');
+            $sqlTest = "select * from table_song where song_rating >= 7";
+            $result = $conn->query($sqlTest);
+            while ($row = $result->fetch_object()){
+                echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\">
+                        <div class=\"hovereffect\">
+                            <img class=\"artists img-responsive\" src=\"$row->song_song_img_directory\">
+                            <div class=\"overlay1\">
+                                <h2>$row->song_artist</h2>
+                                <a class=\"info\" href=\"data/artists (charlie).html\">Listen...</a>
+                            </div>
+                        </div>
+                    </div>";
+            }
+            ?>
         </div>
         <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
             <h3 class="artiststext" style="margin-top: 0;">BILLBOARD</h3>
@@ -192,31 +141,40 @@
                 <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
                     <img src="public/img/slide/img1.jpg" style="width: 100%">
                     <ul id="playlist" style="list-style: none; padding: 0px;">
-                        <li><a href="data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth.m4a" class="list-group-item">See You Again</a></li>
-                        <li><a href="data/src/music/Collage/03 Closer.m4a" class="list-group-item">Closer</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/01 One Call Away.m4a" class="list-group-item">One Call Away</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/03 Marvin Gaye (feat. Meghan Trainor.m4a" class="list-group-item">Marvin Gaye</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/05 We Don_t Talk Anymore (feat. Sele.m4a" class="list-group-item">We Don't Talk Anymore</a></li>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">$row->song_name</a></li>";
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div role="tabpanel" class="scrollmenulist tab-pane" id="week">
                     <img src="public/img/slide/img2.jpg" style="width: 100%">
                     <ul id="playlist" style="list-style: none; padding: 0px;">
-                        <li><a href="data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth.mp3" class="list-group-item">See You Again</a></li>
-                        <li><a href="data/src/music/Collage/03 Closer.mp3" class="list-group-item">Closer</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/01 One Call Away.m4a" class="list-group-item">One Call Away</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/03 Marvin Gaye (feat. Meghan Trainor.m4a" class="list-group-item">Marvin Gaye</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/05 We Don_t Talk Anymore (feat. Sele.m4a" class="list-group-item">We Don't Talk Anymore</a></li>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">$row->song_name</a></li>";
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div role="tabpanel" class="scrollmenulist tab-pane" id="month">
                     <img src="public/img/slide/img3.jpg" style="width: 100%">
                     <ul id="playlist" style="list-style: none; padding: 0px;">
-                        <li><a href="data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth.mp3" class="list-group-item">See You Again</a></li>
-                        <li><a href="data/src/music/Collage/03 Closer.mp3" class="list-group-item">Closer</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/01 One Call Away.m4a" class="list-group-item">One Call Away</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/03 Marvin Gaye (feat. Meghan Trainor.m4a" class="list-group-item">Marvin Gaye</a></li>
-                        <li><a href="data/src/music/Nine Track Mind/05 We Don_t Talk Anymore (feat. Sele.m4a" class="list-group-item">We Don't Talk Anymore</a></li>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">$row->song_name</a></li>";
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -227,60 +185,22 @@
     <div class="container">
         <h3 class="artiststext">ALBUMS</h3>
         <div class="scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s" style="margin: 0px; padding: 0px">
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/albums-1.jpg">
-                    <div class="overlay1">
-                        <h2>Back To Bedlam</h2>
-                        <a class="info" href="data/artists.html">See More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/albums-2.jpg">
-                    <div class="overlay1">
-                        <h2>Collage</h2>
-                        <a class="info" href="#">See More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/albums-3.jpg">
-                    <div class="overlay1">
-                        <h2>Bangarang</h2>
-                        <a class="info" href="data/albums (bangarang).html">See More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/albums-4.jpg">
-                    <div class="overlay1">
-                        <h2>Bad Meets Evil</h2>
-                        <a class="info" href="#">See More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hiden blog col-md-1 col-sm-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/cover/albums-5.jpg">
-                    <div class="overlay1">
-                        <h2>Let the World Know</h2>
-                        <a class="info" href="#">link here</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog col-md-1 col-sm-1 col-xs-1">
-                <div class="hovereffect">
-                    <img class="artists img-responsive" src="public/img/more_btn.png">
-                    <div class="overlay1">
-                        <h2>View more</h2>
-                        <a class="info" href="data/artists.html">link here</a>
-                    </div>
-                </div>
-            </div>
+            <?php
+            require_once ('config/dbconfig.php');
+            $sqlTest = "select * from table_song where song_rating >= 7";
+            $result = $conn->query($sqlTest);
+            while ($row = $result->fetch_object()){
+                echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\">
+                        <div class=\"hovereffect\">";
+                echo "<img class=\"artists img-responsive\" src=\"$row->song_album_img_directory\">
+                    <div class=\"overlay1\">
+                        <h2>$row->song_album</h2>
+                        <a class=\"info\" href=\"data/artists.html\">See More</a>
+                    </div>";
+                echo "</div>
+                    </div>";
+            }
+            ?>
         </div> <!-- end div row -->
         <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
             <h3 class="artiststext" style="margin-top: 0;">TOP ALBUMS</h3>
@@ -295,29 +215,47 @@
             <div class="tab-content wow fadeInDown" style="margin: 0px; height: 250px;">
                 <div role="tabpanel" class="scrollmenulist tab-pane active" id="aday" style="height: 250px;">
                     <ul id="playlist" style="list-style: none; padding: 0px;">
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Nine Track Mind/cover.jpeg" style="width: 50px;"> Nine Track Mind</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Collage/Collage EP 1.jpg" style="width: 50px;"> Collage</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Let the World Know/Folder.jpg" style="width: 50px;"> Let the World Know</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Starboy/front.jpg" style="width: 50px;"> Starboy</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Bad Meets Evil/Folder.jpg" style="width: 50px;"> Bad Meet Evil</a></li>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                        <img src=\"$row->song_album_img_directory\" style=\"width: 50px;\"> $row->song_album
+                                        </a>
+                                  </li>";
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div role="tabpanel" class="scrollmenulist tab-pane" id="aweek" style="height: 250px;">
                     <ul id="playlist" style="list-style: none; padding: 0px;">
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Nine Track Mind/cover.jpeg" style="width: 50px;"> Nine Track Mind</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Collage/Collage EP 1.jpg" style="width: 50px;"> Collage</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Let the World Know/Folder.jpg" style="width: 50px;"> Let the World Know</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Starboy/front.jpg" style="width: 50px;"> Starboy</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Bad Meets Evil/Folder.jpg" style="width: 50px;"> Bad Meet Evil</a></li>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                        <img src=\"$row->song_album_img_directory\" style=\"width: 50px;\"> $row->song_album
+                                        </a>
+                                  </li>";
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div role="tabpanel" class="scrollmenulist tab-pane" id="amonth" style="height: 250px;">
                     <ul id="playlist" style="list-style: none; padding: 0px;">
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Nine Track Mind/cover.jpeg" style="width: 50px;"> Nine Track Mind</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Collage/Collage EP 1.jpg" style="width: 50px;"> Collage</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Let the World Know/Folder.jpg" style="width: 50px;"> Let the World Know</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Starboy/front.jpg" style="width: 50px;"> Starboy</a></li>
-                        <li><a href="data/albums.html" class="list-group-item"><img src="data/src/music/Bad Meets Evil/Folder.jpg" style="width: 50px;"> Bad Meet Evil</a></li>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                        <img src=\"$row->song_album_img_directory\" style=\"width: 50px;\"> $row->song_album
+                                        </a>
+                                  </li>";
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -333,77 +271,24 @@
                 <div class="panel panel-mostPopular" style="margin-top: 20px;">
                     <div class="panel-heading"><h2>Most popular</h2></div>
                     <div class="panel-body">
-                        <div class="grow" style="border-top:1px solid #000;">
-                            <div id="status1" class="status">►</div>
-                            <div class="left"><br><p>See You Again</p></div>
-                            <div class="right"><br><p>03:50</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status1')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: Charlie Puth</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Nine Track Mind</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status2" class="status">►</div>
-                            <div class="left"><br><p>Closer</p></div>
-                            <div class="right"><br><p>04:05</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Collage/03 Closer', 'status2')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: The Chainsmokers</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Collage EP</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status3" class="status">►</div>
-                            <div class="left"><br><p>Setting Fires</p></div>
-                            <div class="right"><br><p>04:07</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status3')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: The Chainsmokers</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Collage EP</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status4" class="status">►</div>
-                            <div class="left"><br><p>Party Monster</p></div>
-                            <div class="right"><br><p>04:07</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status4')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: The Weekend</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Starboy</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status5" class="status">►</div>
-                            <div class="left"><br><p>Losing My Mind</p></div>
-                            <div class="right"><br><p>03:32</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status5')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: Charlie Puth</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Nine Track Mind</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status6" class="status">►</div>
-                            <div class="left"><br><p>The End Is Where We Begin</p></div>
-                            <div class="right"><br><p>03:44</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status6')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: Thousand Foot Krutch</p></div>
-                            <div class="right"><br><p>Release year: 2012</p></div>
-                            <p>Album: The End Is Where We Begin</p>
-                        </div>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<div class=\"grow\" style=\"border-top:1px solid #000;\">
+                                    <div id=\"status1\" class=\"status\">►</div>
+                                    <div class=\"left\"><br><p>$row->song_name</p></div>
+                                    <div class=\"right\"><br><p>03:53</p></div>
+                                    <br><br>
+                                    <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_song_directory', 'status1')\">Play</button>
+                                    <br>
+                                    <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
+                                    <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
+                                    <p>Album: $row->song_album</p>
+                                </div>";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -413,77 +298,24 @@
                 <div class="panel panel-newSong" style="margin-top: 20px;">
                     <div class="panel-heading"><h2>New song</h2></div>
                     <div class="panel-body">
-                        <div class="grow" style="border-top:1px solid #000;">
-                            <div id="status7" class="status">►</div>
-                            <div class="left"><br><p>Starboy</p></div>
-                            <div class="right"><br><p>03:54</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status7')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: The Weeknd</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Starboy</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status8" class="status">►</div>
-                            <div class="left"><br><p>We Don't Talk Anymore</p></div>
-                            <div class="right"><br><p>03:37</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status8')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: Charlie Puth</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Nine Track Mind</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status9" class="status">►</div>
-                            <div class="left"><br><p>Suffer</p></div>
-                            <div class="right"><br><p>03:30</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status9')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: Charlie Puth</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Nine Track Mind</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000; clear: left;">
-                            <div id="status10" class="status">►</div>
-                            <div class="left"><br><p>Then There's You</p></div>
-                            <div class="right"><br><p>03:34</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status10')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: Charlie Puth</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Nine Track Mind</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000;">
-                            <div id="status11" class="status">►</div>
-                            <div class="left"><br><p>Ordinary Life</p></div>
-                            <div class="right"><br><p>03:54</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status11')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: The Weeknd</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Starboy</p>
-                        </div>
-
-                        <div class="grow" style="border-top:1px solid #000;">
-                            <div id="status12" class="status">►</div>
-                            <div class="left"><br><p>I Feel It Coming</p></div>
-                            <div class="right"><br><p>04:33</p></div>
-                            <br><br>
-                            <button type="button" class="btn btn-info" onclick="changeSource('data/src/music/Nine Track Mind/13 See You Again (feat. Charlie Puth', 'status12')">Play</button>
-                            <br>
-                            <div class="left"><br><p>Artist: The Weeknd</p></div>
-                            <div class="right"><br><p>Release year: 2016</p></div>
-                            <p>Album: Starboy</p>
-                        </div>
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<div class=\"grow\" style=\"border-top:1px solid #000;\">
+                                    <div id=\"status1\" class=\"status\">►</div>
+                                    <div class=\"left\"><br><p>$row->song_name</p></div>
+                                    <div class=\"right\"><br><p>03:53</p></div>
+                                    <br><br>
+                                    <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_song_directory', 'status1')\">Play</button>
+                                    <br>
+                                    <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
+                                    <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
+                                    <p>Album: $row->song_album</p>
+                                </div>";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

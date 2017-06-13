@@ -1,5 +1,5 @@
 <?php
-require_once ('../vendors/config/dbconfig.php');
+require_once ('../../config/dbconfig.php');
 if(isset($_POST['username']) && $_POST['username']!= ''){
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -7,7 +7,7 @@ if(isset($_POST['username']) && $_POST['username']!= ''){
     $photo = '';
 
     if(filesize($_FILES['photo']['tmp_name'])>0){
-        $uploadDir = "upload/";
+        $uploadDir = "public/audio_player_img/userProfile/";
         $fileTmpName = $_FILES['photo']['tmp_name'];
         $fileExtension = pathinfo($_FILES['photo']['name'])['extension'];
         $fileName = time().".$fileExtension";
@@ -28,25 +28,23 @@ if(isset($_POST['username']) && $_POST['username']!= ''){
             echo "File is bigger thant 5M - file size is ".number_format($fileSize/1024/1024, 2)."MB";
         }
     }else{
-        $target = "../public/img/".$sex.".jpg";
+        $target = "public/audio_player_img/userProfile/".$sex.".jpg";
         $photo = $target;
     }
 
     require_once ('salt.php');
     $password = crypt($password, KEY_SALT);
-    $sqlTest = "select * from users where username='$username'";
+    $sqlTest = "select * from table_user where user_name='$username'";
     $result = $conn->query($sqlTest);
     if($result->num_rows == 0){
-        $sql = "insert into users (username, sex, password, photo) values ('$username', '$sex', '$password', '$photo')";
+        $sql = "insert into table_user (user_name, user_password, sex, photo) values ('$username', '$password', '$sex', '$photo')";
         $result = $conn->query($sql);
         if($result){
-            header('Location: ../loginPage.php');
+            header('Location: loginPage.php');
         }else{
-//            echo "khos";
             header('Location: signUp.php');
         }
     }else{
-//        echo "have";
         header("Location: signUp.php");
     }
 }else{

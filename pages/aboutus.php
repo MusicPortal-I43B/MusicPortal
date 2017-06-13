@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Music Portal</title>
     <script src="../public/js/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="../public/vendors/bootstrap/css/bootstrap.min.css">
     <style>
         body {
             background: url("../public/img/aboutus-background.jpg");
@@ -72,13 +73,12 @@
 </head>
 
 <body>
-
-<ul class="aboutUs">
-    <li><a href="#"><img src="../public/img/aboutus/nhean.jpg"></a></li>
-    <li><a href="#"><img src="../public/img/aboutus/nadin.jpg"></a></li>
-    <li><a href="#"><img src="../public/img/aboutus/vanna.jpg"></a></li>
-    <li><a href="#"><img src="../public/img/aboutus/sovath.jpg"></a></li>
-</ul>
 <h1>About Us Page</h1>
+<ul class="aboutUs">
+    <li><a href="#"><img src="../public/img/aboutus/nhean.jpg"></a><h2 style="background-color: lightgrey">SAMAN Tipputhinhean</h2></li>
+    <li><a href="#"><img src="../public/img/aboutus/nadin.jpg"></a><h2 style="background-color: lightgrey">POUTH Nadin</h2></li>
+    <li><a href="#"><img src="../public/img/aboutus/vanna.jpg"></a><h2 style="background-color: lightgrey">POUNG Sovanna</h2></li>
+    <li><a href="#"><img src="../public/img/aboutus/sovath.jpg"></a><h2 style="background-color: lightgrey">PHATH Sovath</h2></li>
+</ul>
 </body>
 </html>

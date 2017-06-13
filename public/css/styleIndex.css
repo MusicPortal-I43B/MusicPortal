@@ -186,6 +186,78 @@ tr:nth-child(even){background-color: #f2f2f2}
 	transform: scale(1);
 }
 
+#mySidenav a {
+	z-index: 1000;
+	position: fixed;
+	left: -90px;
+	transition: 0.3s;
+	padding: 15px 100px 15px 15px;
+	width: 130px;
+	text-align: left;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 0 5px 5px 0;
+}
+#mySidenav a:hover {
+	left: 0;
+}
+
+#logInnav a {
+	z-index: 1000;
+	position: absolute;
+	right: -100px;
+	transition: 0.3s;
+	padding: 15px 15px 15px 50px;
+	width: 150px;
+	text-align: right;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 5px 0 0 5px;
+}
+
+#logInnav a:hover {
+	right: 0;
+}
+
+#login {
+	top: 20px;
+	background-color: #2196F3;
+}
+
+#signup {
+	top: 80px;
+	background-color: #2196F3;
+}
+
+#home {
+	top: 20px;
+	background-color: #4CAF50;
+}
+
+#blog {
+	top: 80px;
+	background-color: #2196F3;
+}
+
+#projects {
+	top: 140px;
+	background-color: #f44336;
+}
+
+#contact {
+	top: 200px;
+	background-color: #555
+}
+
+#about {
+	top: 260px;
+	background-color: #4CAF50;
+}
+
+
+
 @media only screen and (max-width: 500px) {
 	.hiden {
 		display: none;
