@@ -1,0 +1,175 @@
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background: -webkit-linear-gradient(45deg, #ff89e9 0%, #05abe0 100%);
+  background: linear-gradient(45deg, #ff89e9 0%,#05abe0 100%);
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  padding: 3em;
+  text-align: left;
+}
+
+.hovereffect img {
+  display: block;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  max-width: none;
+  width: calc(100% + 60px);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.45s;
+  transition: opacity 0.35s, transform 0.45s;
+  -webkit-transform: translate3d(-40px,0,0);
+  transform: translate3d(-40px,0,0);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  color: #fff;
+  position: relative;
+  font-size: 17px;
+  background-color: transparent;
+  padding: 15% 0 10px 0;
+  text-align: left;
+}
+
+.hovereffect .overlay:before {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  border: 1px solid #fff;
+  content: '';
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.45s;
+  transition: opacity 0.35s, transform 0.45s;
+  -webkit-transform: translate3d(-20px,0,0);
+  transform: translate3d(-20px,0,0);
+}
+
+.hovereffect a, .hovereffect p {
+  color: #FFF;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.45s;
+  transition: opacity 0.35s, transform 0.45s;
+  -webkit-transform: translate3d(-10px,0,0);
+  transform: translate3d(-10px,0,0);
+}
+
+.hovereffect:hover img {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect:hover .overlay:before,
+.hovereffect:hover a, .hovereffect:hover p {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+
+/*artists dropdown song*/
+
+/*a.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+a.accordion.active, a.accordion:hover {
+    background-color: #ddd; 
+}
+*/
+body {
+    background-image: url("elegant.jpg") !important;
+    background-attachment: fixed;
+}
+
+
+div.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+}
+
+
+
+div.scrollmenulist {
+        /*overflow: auto;*/
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 173px;
+        white-space: nowrap;
+}
+
+  .aboutusartists{
+    width: 100%;
+    padding: 0px;
+  }
+  .blog{
+    width: 200px;
+    padding: 0px;
+  }
+  .artiststext{
+    width: 100%;
+    padding: 25px;
+    background-image: url(header.png);
+    border: 1px solid;
+    border-radius: 5px;
+  }
+
+  .artists{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  #playerFrame {
+    width: 100%;
+    padding: 1px;
+    border: 1px solid gray;
+    margin: 0;
+    background: white;
+    bottom: 0;
+    position: fixed;
+  }
+    #wrapper {
+        min-height:100%;
+        position:relative;
+    }
+
+    #footer {
+        background:white;
+        width:100%;
+        height:100px;
+        position:absolute;
+        bottom:0px;
+        left:0;
+    }
