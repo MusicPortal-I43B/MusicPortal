@@ -6,8 +6,8 @@ if(isset($_POST['username']) && $_POST['username']!= ''){
     $sex = $_POST['gender'];
     $photo = '';
 
-    if(filesize($_FILES['photo']['tmp_name'])>0){
-        $uploadDir = "public/audio_player_img/userProfile/";
+    if(filesize($_FILES['photo']['tmp_name']) > 0){
+        $uploadDir = "public/img/userProfile/";
         $fileTmpName = $_FILES['photo']['tmp_name'];
         $fileExtension = pathinfo($_FILES['photo']['name'])['extension'];
         $fileName = time().".$fileExtension";
@@ -28,7 +28,7 @@ if(isset($_POST['username']) && $_POST['username']!= ''){
             echo "File is bigger thant 5M - file size is ".number_format($fileSize/1024/1024, 2)."MB";
         }
     }else{
-        $target = "public/audio_player_img/userProfile/".$sex.".jpg";
+        $target = "public/img/userProfile/".$sex.".jpg";
         $photo = $target;
     }
 

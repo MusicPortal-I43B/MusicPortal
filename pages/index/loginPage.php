@@ -14,7 +14,7 @@ if(isset($_COOKIE['username'])){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../public/css/StyleLogin.css">
+    <link rel="stylesheet" href="../../public/css/styleLogin.css">
 </head>
 <body>
 <!--Div for slide show-->
@@ -32,6 +32,7 @@ if(isset($_COOKIE['username'])){
         <div class="default"><i class="icon-briefcase"></i><h1>Press login</h1></div>
         <input type="text" placeholder="username" name="username" autocomplete="off" required/>
         <input type="password" placeholder="password" name="password" autocomplete="off" required/>
+        <label for="rememberMe" style="text-align: center;"><input type="checkbox" id="rememberMe" style="width: 100%;" value="r"> Remember Me</label>
         <button type="submit" class="login"><i class="icon-ok"></i></button>
         <a href="signUp.php" style="margin-top: 20px; float: right;">Register New Account</a>
     </form>

@@ -186,7 +186,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 	transform: scale(1);
 }
 
-#mySidenav a {
+#mySidenav a{
 	z-index: 1000;
 	position: fixed;
 	left: -90px;
@@ -199,7 +199,27 @@ tr:nth-child(even){background-color: #f2f2f2}
 	color: white;
 	border-radius: 0 5px 5px 0;
 }
+
+
+#mySidenav button{
+	z-index: 1000;
+	position: fixed;
+	left: -90px;
+	transition: 0.3s;
+	padding: 15px 100px 15px 15px;
+	width: 130px;
+	text-align: left;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 0 5px 5px 0;
+}
+
 #mySidenav a:hover {
+	left: 0;
+}
+
+#mySidenav button:hover {
 	left: 0;
 }
 
@@ -217,7 +237,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 	border-radius: 5px 0 0 5px;
 }
 
-#logInnav a:hover {
+#logInnav a:hover{
 	right: 0;
 }
 
@@ -236,17 +256,17 @@ tr:nth-child(even){background-color: #f2f2f2}
 	background-color: #4CAF50;
 }
 
-#blog {
+#genres {
 	top: 80px;
 	background-color: #2196F3;
 }
 
-#projects {
+#artists {
 	top: 140px;
 	background-color: #f44336;
 }
 
-#contact {
+#albums {
 	top: 200px;
 	background-color: #555
 }
@@ -255,8 +275,6 @@ tr:nth-child(even){background-color: #f2f2f2}
 	top: 260px;
 	background-color: #4CAF50;
 }
-
-
 
 @media only screen and (max-width: 500px) {
 	.hiden {
