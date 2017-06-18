@@ -3,6 +3,7 @@
 if(isset($_POST["value"])) {
     require_once ('../config/dbconfig.php');
     $sql = "select * from table_song where song_album = '".$_POST['value']."'";
+    echo $_POST['value'];
     $result = $conn->query($sql);
     $str = '';
     while ($row = $result->fetch_object()) {

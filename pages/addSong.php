@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/styleIndex.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/indexStyle.css">
     <link rel="stylesheet" href="../public/css/animate.css">
     <link rel="stylesheet" href="../public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../public/css/songStyle.css">

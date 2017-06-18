@@ -6,10 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/styleIndex.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/indexStyle.css">
     <link rel="stylesheet" href="../public/css/animate.css">
     <link rel="stylesheet" href="../public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../public/css/songStyle.css">
+    <link rel="stylesheet" href="../public/css/moduleStyle.css">
     <title>Document</title>
 </head>
 
@@ -135,12 +136,13 @@
                 echo "<div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"page$i\">";
                     echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12\" style=\"margin: 0px; padding: 0px;\">";
                         while ($row = $result->fetch_object()){
-                            echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\">
+                            echo "<div class=\"blog col-md-1 col-sm-6 col-xs-6\">
                                 <div class=\"hovereffect\">
                                     <img class=\"artists img-responsive\" src=\"../$row->song_artist_img_directory\">
                                     <div class=\"overlay1\">
                                         <h2>$row->song_artist</h2>
-                                        <a class=\"info\" href=\"data/artists (charlie).html\">Listen...</a>
+                                        <button id=\"myBtn\">Listen...</button>
+                                        <a class=\"info\">Listen...</a>
                                     </div>
                                 </div>
                             </div>";
@@ -151,6 +153,55 @@
             ?>
     </div>
 </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+        </div>
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 
 <script src="../public/vendors/jquery/jquery-3.1.1.min.js"></script>
 <script src="../public/vendors/bootstrap/js/bootstrap.min.js"></script>
