@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="public/css/StyleIndex.css">
+    <link rel="stylesheet" type="text/css" href="public/css/indexStyle.css">
     <link rel="stylesheet" href="public/css/animate.css">
     <link rel="stylesheet" href="public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/songStyle.css">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="public/css/AudioPlayerStyle.css" media="screen">
     <!-- Point to external css file -->
 </head>
-<body style="max-width: 100%; overflow-x: hidden">
+<body style="max-width: 100%; overflow-x: hidden;">
 <!--<div class="audio-player">
     <h1>Demo - Preview Song</h1>
     <img class="cover" src="public/uploads/album_img/shapeofyou.jpg" alt="" style="width: 110px; height: 114px;">
@@ -114,26 +114,56 @@
         </div>
     </div>
     <!--Div for artists block-->
-    <div class="container">
+    <div class="col-md-offset-1 container">
         <h3 class="artiststext">ARTISTS</h3>
-        <div class="scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s" style="margin: 0px; padding: 0px">
             <?php
             require_once ('config/dbconfig.php');
             $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
             $result = $conn->query($sqlTest);
-            while ($row = $result->fetch_object()){
-                echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\">
-                        <div class=\"hovereffect\">
-                            <img class=\"artists img-responsive\" src=\"$row->song_artist_img_directory\">
-                            <div class=\"overlay1\">
-                                <h2>$row->song_artist</h2>
-                                <a class=\"info\" href=\"data/artists (charlie).html\">Listen...</a>
+            echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
+            while ($row = $result->fetch_object()) {
+                echo "<form action=\"pages/fetch.php\" method=\"post\">";
+                echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\" style='float: left;'>
+                                  <div class=\"hovereffect\">";
+                                  echo "<img class=\"artists img-responsive\" src=\"$row->song_artist_img_directory\">
+                                        <div class=\"overlay1\">
+                                            <h2>$row->song_album</h2>
+                                            <input type='text' data-id3='$row->song_artist' value='$row->song_artist' id=\"album_name\" hidden>
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                                View...
+                                            </a>
+                                        </div>";
+                            echo "</div>
+                           </div>";
+                echo "</form>";
+            }
+            echo "</div>";
+            $result1 = $conn->query($sqlTest);
+            while ($row = $result1->fetch_object()){
+                echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                        <div class=\"modal-dialog\" role=\"document\">
+                            <div class=\"modal-content\">
+                                <div class=\"modal-header\">
+                                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
+                                    <div style='float: left;'><img src='$row->song_artist_img_directory' alt='' style='width: 100px;'></div>
+                                    <div style='float: left;'>
+                                        <h4 class=\"modal-title\" id=\"noteLabel\">&nbsp;$row->song_artist</h4>
+                                        <h5>&nbsp;Release: $row->song_release_year</h5>
+                                    </div>
+                                </div>
+                                <div class=\"modal-body\">";
+                                echo "<div class=\"list-group\">";
+                                echo "<a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                    <span class='left'>$row->song_name</span>
+                                    <span class='right'>03:53</span>
+                                 </a>";
+                                echo "</div>";
+                                echo "</div>
                             </div>
                         </div>
                     </div>";
             }
             ?>
-        </div>
         <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
             <h3 class="artiststext" style="margin-top: 0;">BILLBOARD</h3>
             <!-- Nav tabs -->
@@ -190,47 +220,65 @@
     </div>
 
     <!--Div for albums block-->
-    <div class="container">
+    <div class="col-md-offset-1 container">
         <h3 class="artiststext">ALBUMS</h3>
-        <div class="scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s" style="margin: 0px; padding: 0px">
-            <form action="pages/fetch.php" method="post">
                 <?php
                 require_once ('config/dbconfig.php');
                 $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
                 $result = $conn->query($sqlTest);
-                while ($row = $result->fetch_object()){
-                    echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\">
-                            <div class=\"hovereffect\">";
-                    echo "<img class=\"artists img-responsive\" src=\"$row->song_album_img_directory\">
-                        <div class=\"overlay1\">
-                            <h2>$row->song_album</h2>
-                            <label for='album_name'>
-                                <input type=\"text\" value=\"$row->song_album\" id=\"album_name\" hidden>
-                                <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note\" data-whatever=\"@mdo\" id=\"new_note\">See More</a>
-                            </label>
-                        </div>";
-                    echo "</div>
-                        </div>";
+                $id = '';
+                echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
+                while ($row = $result->fetch_object()) {
+                    echo "<form action=\"pages/fetch.php\" method=\"post\">";
+                        echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\" style='float: left;'>
+                                  <div class=\"hovereffect\">";
+                                echo "<img class=\"artists img-responsive\" src=\"$row->song_album_img_directory\">
+                                        <div class=\"overlay1\">
+                                            <h2>$row->song_album</h2>
+                                            <input type='text' data-id3='$row->song_album' value='$row->song_album' id=\"album_name\" hidden>
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                                View...
+                                            </a>
+                                        </div>";
+                        echo "</div>
+                              </div>";
+                    echo "</form>";
                 }
-                ?>
-            </form>
-        </div> <!-- end div row -->
-
-        <div class="col-sm-12 modal fade" id="note" tabindex="-1" role="dialog" aria-labelledby="noteLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="noteLabel">Song List...</h4>
-                    </div>
-                    <div class="modal-body" id="result"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+                echo "</div>";
+                $result1 = $conn->query($sqlTest);
+                while ($row = $result1->fetch_object()){
+                        echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                        <div class=\"modal-dialog\" role=\"document\">
+                            <div class=\"modal-content\">
+                                <div class=\"modal-header\">
+                                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
+                                    <div style='float: left;'><img src='$row->song_album_img_directory' alt='' style='width: 100px;'></div>
+                                    <div style='float: left;'>
+                                        <h4 class=\"modal-title\" id=\"noteLabel\">&nbsp;$row->song_album</h4>
+                                        <h5>&nbsp;Release: $row->song_album_release_date</h5>
+                                    </div>
+                                </div>
+                                <div class=\"modal-body\">";
+                                    $sqlSong = "select * from table_song where song_album = ".$row->song_album." order by song_name";
+                                    echo "<div class=\"list-group\">";
+                    /*$songRes = $conn->query($sqlSong);
+                    while($song = $songRes->fetch_object()){*/
+                                        echo "<a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                            <!--<span class='left'>►</span>-->
+                                            <span class='left'>$row->song_name</span>
+                                            <span class='right'>03:53</span>
+                                         </a>";
+                                    //}
+                                    echo "</div>";
+                                echo "</div><!--
+                                <div class=\"modal-footer\">
+                                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>";
+                }
+            ?>
         <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
             <h3 class="artiststext" style="margin-top: 0;">TOP ALBUMS</h3>
             <!-- Nav tabs -->
@@ -245,10 +293,10 @@
                     <ul id="playlist" style="list-style: none; padding: 0px;">
                         <?php
                         require_once ('config/dbconfig.php');
-                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 10";
+                        $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
                         $result = $conn->query($sqlTest);
                         while ($row = $result->fetch_object()){
-                            echo "<li><a class=\"list-group-item\" data-toggle=\"modal\" data-target=\"#note\" data-whatever=\"@mdo\" id=\"new_note\">
+                            echo "<li><a class=\"list-group-item\" data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
                                         <img src=\"$row->song_album_img_directory\" style=\"width: 50px;\"> $row->song_album
                                         </a>
                                   </li>";
@@ -260,7 +308,7 @@
                     <ul id="playlist" style="list-style: none; padding: 0px;">
                         <?php
                         require_once ('config/dbconfig.php');
-                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 10";
+                        $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
                         $result = $conn->query($sqlTest);
                         while ($row = $result->fetch_object()){
                             echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">
@@ -275,7 +323,7 @@
                     <ul id="playlist" style="list-style: none; padding: 0px;">
                         <?php
                         require_once ('config/dbconfig.php');
-                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 10";
+                        $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
                         $result = $conn->query($sqlTest);
                         while ($row = $result->fetch_object()){
                             echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">
@@ -288,12 +336,11 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <div class="container">
-        <!-- <h3 class="artiststext">SONGS</h3> -->
-        <div class="scrollmenu col-md-12 col-sm-12 col-xs-12" style="margin: 0px; padding: 0px">
+    <div class="col-md-offset-1 container">
+         <h3 class="artiststext">SONGS</h3>
+        <div class="col-md-12 col-sm-12 col-xs-12" style="margin: 0px; padding: 0px">
             <!-- Most popular -->
             <div class="col-md-6 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
                 <div class="panel panel-mostPopular" style="margin-top: 20px;">
@@ -331,7 +378,7 @@
                         $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 25";
                         $result = $conn->query($sqlTest);
                         while ($row = $result->fetch_object()){
-                            echo "<div class=\"grow\">
+                            echo "<div class=\"grow\" style=\"border-top:1px solid #000;\">
                                     <div id=\"status1\" class=\"status\">►</div>
                                     <div class=\"left\"><br><p>$row->song_name</p></div>
                                     <div class=\"right\"><br><p>03:53</p></div>
@@ -388,29 +435,6 @@
         }
         document.getElementById(statusID).style.display = 'inline';
     }
-</script>
-
-<script>
-    $(document).ready(function(){
-        $('a#new_note').click(function(){
-            var value = $('#album_name').val();
-            if(value.length)
-            {
-                $.ajax({
-                    url:"pages/fetch.php",
-                    method:"POST",
-                    data:{value:value},
-                    success:function(data)
-                    {
-                        $('#result').html(data);
-                    }
-                });
-            }else
-            {
-                $('#result').html('');
-            }
-        });
-    });
 </script>
 
 </body>
