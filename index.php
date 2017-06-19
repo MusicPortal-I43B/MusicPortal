@@ -37,7 +37,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="#" id="home">Home</a>
         <div class="dropdown">
-            <a href="#" id="genres">Genres</a>
+            <a href="./pages/genres/allGenre.php" id="genres">Genres</a>
             <!--<div class="dropdown-content" id="myDropdown">
                 <a href="#">Rock</a>
                 <a href="#">Pop</a>
