@@ -4,5 +4,5 @@
         setcookie('username', '', time()-3600);
         session_destroy();
     }
-    header('Location: ../loginPage.php');
+    header('Location: ../../index.php');
 ?>

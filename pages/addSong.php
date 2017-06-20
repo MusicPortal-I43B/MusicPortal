@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/indexStyle.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/styleIndex.css">
     <link rel="stylesheet" href="../public/css/animate.css">
     <link rel="stylesheet" href="../public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../public/css/songStyle.css">
@@ -30,49 +30,56 @@
                 <table class="table table-hover">
                     <tr class="active">
                         <td class="menu">Title</td>
-                        <td contenteditable="true">Hello</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr class="success">
                         <td class="menu">Artist</td>
-                        <td contenteditable="true">World</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr class="active">
                         <td class="menu">Genre</td>
-                        <td contenteditable="true">Hello</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr class="warning">
                         <td class="menu">Album</td>
-                        <td contenteditable="true">World</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr class="active">
                         <td class="menu">Song release</td>
-                        <td contenteditable="true">Hello</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr class="danger">
                         <td class="menu">Album release</td>
-                        <td contenteditable="true">World</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr class="active">
                         <td class="menu">Subtitle</td>
-                        <td contenteditable="true">Hello</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr class="info">
-                        <td class="menu">Upload song</td>
+                        <td class="menu"></td>
                         <td>
-                            <div class="form-group">
-                                <input type="file" id="exampleInputFile">
-                            </div>
+
                         </td>
                     </tr>
                     <tr class="active">
                         <td class="menu">Upload song cover</td>
-                        <td contenteditable="true">Hello</td>
+                        <td contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="menu">Album cover</td>
                         <td contenteditable="true" aria-required="true"></td>
                     </tr>
                 </table>
+                <div class="form-group">
+                    <input type="file" id="songFile">
+                </div>
+                <div class="form-group">
+                    <input type="file" id="imgAlbumFile">
+                </div>
+                <div class="form-group">
+                    <input type="file" id="imgArtistFile">
+                </div>
             </div>
             <button class="btn" type="submit">Submt</button>
         </form>

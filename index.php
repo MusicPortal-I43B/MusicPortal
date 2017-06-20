@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,55 +8,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="public/css/indexStyle.css">
+    <link rel="stylesheet" type="text/css" href="public/css/styleIndex.css">
     <link rel="stylesheet" href="public/css/animate.css">
     <link rel="stylesheet" href="public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/songStyle.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/artists.css"> -->
     <link rel="stylesheet" href="public/vendors/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" />
-    <!-- Audio Player CSS & Scripts -->
-    <script src="public/js/mediaelement-and-player.min.js"></script>
-    <link rel="stylesheet" href="public/css/AudioPlayerStyle.css" media="screen">
-    <!-- Point to external css file -->
 </head>
 <body style="max-width: 100%; overflow-x: hidden;">
-<!--<div class="audio-player">
-    <h1>Demo - Preview Song</h1>
-    <img class="cover" src="public/uploads/album_img/shapeofyou.jpg" alt="" style="width: 110px; height: 114px;">
-    <audio id="audio-player" src="public/uploads/media/shapeofyou.mp3" type="audio/mp3" controls="controls"></audio>
-</div>
-<script>
-    $(document).ready(function() {
-        $('#audio-player').mediaelementplayer({
-            alwaysShowControls: true,
-            features: ['playpause','volume','progress'],
-            audioVolume: 'horizontal',
-            audioWidth: 400,
-            audioHeight: 120
-        });
-    });
-</script>-->
 <div id="wrapper">
     <div id="mySidenav" class="sidenav">
         <a href="#" id="home">Home</a>
-        <div class="dropdown">
-            <a href="#" id="genres">Genres</a>
-            <!--<div class="dropdown-content" id="myDropdown">
-                <a href="#">Rock</a>
-                <a href="#">Pop</a>
-                <a href="#">Class</a>
-                <a href="#">Dance</a>
-            </div>-->
-        </div>
+        <a href="#" id="genres" onclick="openNav()">Genres</a>
         <a href="pages/artistPage.php" id="artists">Artists</a>
         <a href="#" id="albums">Albums</a>
         <a href="pages/aboutus.php" id="about">About</a>
     </div>
     <div id="logInnav" class="sidenav">
-        <a href="pages/index/loginPage.php" id="login">Login</a>
-        <a href="pages/index/signUp.php" id="signup">Signup</a>
+        <?php
+        if(isset($_SESSION['username']) && $_SESSION['username'] == 'admin'){
+            echo "<a href=\"pages/index/loginPage.php\" id=\"login\">Goto Admin Page</a>";
+            echo "<a href=\"pages/index/Logout.php\" id=\"logout\">Log Out</a>";
+            echo "<a id=\"addSong\" data-toggle=\"modal\" data-target=\"#addNewSong\" style=\"cursor: pointer;\">Add Song</a>";
+        }else if(isset($_SESSION['username']) && $_SESSION['username'] != 'admin'){
+            echo "<a href=\"pages/index/Logout.php\" id=\"logout\">Log Out</a>";
+        }else{
+            echo "<a href=\"pages/index/loginPage.php\" id=\"login\">Login</a>
+                  <a href=\"pages/index/signUp.php\" id=\"signup\">Sign up</a>";
+        }
+        ?>
     </div>
     <div class="clearfix"></div>
+
+    <!--  side for genres  -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">Pop</a>
+            <a href="#">Dance</a>
+            <a href="#">Hip Hip</a>
+            <a href="#">Rock</a>
+        </div>
+    </div>
     <div style="width: 100%; margin-left: auto; margin-right: auto;">
         <!--Div for slide show-->
         <div>
@@ -129,7 +125,7 @@
                                         <div class=\"overlay1\">
                                             <h2>$row->song_album</h2>
                                             <input type='text' data-id3='$row->song_artist' value='$row->song_artist' id=\"album_name\" hidden>
-                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#artist$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
                                                 View...
                                             </a>
                                         </div>";
@@ -140,7 +136,7 @@
             echo "</div>";
             $result1 = $conn->query($sqlTest);
             while ($row = $result1->fetch_object()){
-                echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                echo "<div class=\"col-sm-12 modal fade\" id=\"artist$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
                         <div class=\"modal-dialog\" role=\"document\">
                             <div class=\"modal-content\">
                                 <div class=\"modal-header\">
@@ -236,7 +232,7 @@
                                         <div class=\"overlay1\">
                                             <h2>$row->song_album</h2>
                                             <input type='text' data-id3='$row->song_album' value='$row->song_album' id=\"album_name\" hidden>
-                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#album$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
                                                 View...
                                             </a>
                                         </div>";
@@ -247,7 +243,7 @@
                 echo "</div>";
                 $result1 = $conn->query($sqlTest);
                 while ($row = $result1->fetch_object()){
-                        echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                        echo "<div class=\"col-sm-12 modal fade\" id=\"album$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
                         <div class=\"modal-dialog\" role=\"document\">
                             <div class=\"modal-content\">
                                 <div class=\"modal-header\">
@@ -436,6 +432,17 @@
         document.getElementById(statusID).style.display = 'inline';
     }
 </script>
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+
 
 </body>
 </html>

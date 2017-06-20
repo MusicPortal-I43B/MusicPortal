@@ -34,7 +34,7 @@
             <option value="male">&nbsp;&nbsp;Male</option>
         </select>
         <label for="name" class="btn" style="text-align: left;">Select a profile image</label>
-        <input type="file" id="name" name="photo" style="visibility:hidden;">
+        <input type="file" id="photo" name="photo" style="visibility:hidden;">
         <button type="submit" class="login" name="submit" id="submit"><i class="icon-ok"></i></button>
         <a href="loginPage.php" style="margin-top: 20px; float: right;">I have an account</a>
     </form>

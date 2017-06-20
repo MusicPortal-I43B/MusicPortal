@@ -3,7 +3,7 @@ if(isset($_POST['username']) && $_POST['username']!= ''){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    require_once ('../vendors/config/dbconfig.php');
+    require_once ('../../config/dbconfig.php');
 
     require_once('salt.php');
     $password = crypt($password, KEY_SALT);
@@ -14,18 +14,18 @@ if(isset($_POST['username']) && $_POST['username']!= ''){
         $id = $row->id;
         session_start();
         $_SESSION['username'] = $username;
-        $_SESSION['id'] = $id;
-//        if($_POST['rememberMe'] == 'r'){
-//            setcookie('id', $id, time()+60*60*24);
-//            setcookie('username', $username, time()+60*60*24);
-//        }
-        header('Location: ../loged_in.php');
+        $_SESSION['password'] = $password;
+        if($_POST['rememberMe'] == 'r'){
+            setcookie('id', $id, time()+60*60*24);
+            setcookie('username', $username, time()+60*60*24);
+        }
+        header('Location: ../../index.php');
 //        echo "trov";
     }else{
-        header('Location: ../loginPage.php');
+        header('Location: loginPage.php');
 //        echo "khos";
     }
 }else{
-    header('Location: ../loginPage.php');
+    header('Location: loginPage.php');
 }
 ?>
