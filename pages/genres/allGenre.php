@@ -5,25 +5,110 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../public/css/StyleIndex.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/allGenre.css">
     <link rel="stylesheet" href="../../public/css/animate.css">
     <link rel="stylesheet" href="../../public/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../public/css/songStyle.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/artists.css"> -->
+<!--    <link rel="stylesheet" type="text/css" href="../../public/css/songStyle.css">-->
+<!--     <link rel="stylesheet" type="text/css" href="css/artists.css"> -->
     <link rel="stylesheet" href="../../public/vendors/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" />
     <!-- Audio Player CSS & Scripts -->
     <script src="../../public/js/mediaelement-and-player.min.js"></script>
-    <link rel="stylesheet" href="../../public/css/AudioPlayerStyle.css" media="screen">
+<!--    <link rel="stylesheet" href="../../public/css/AudioPlayerStyle.css" media="screen">-->
+
+    <script src="../../public/vendors/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../../public/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../public/js/script.js"></script>
+    <script src="../../public/vendors/jquery/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </head>
 
 <body>
-<div class="col-md-6 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
+<div class="wrapper">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="../../index.php" id="home">Home</a>
+        <div class="dropdown">
+            <a href="../../pages/genres/allGenre.php" id="genres">Genres</a>
+            <!--<div class="dropdown-content" id="myDropdown">
+                <a href="#">Rock</a>
+                <a href="#">Pop</a>
+                <a href="#">Class</a>
+                <a href="#">Dance</a>
+            </div>-->
+        </div>
+        <a href="../../pages/artistPage.php" id="artists">Artists</a>
+        <a href="#" id="albums">Albums</a>
+        <a href="../../pages/aboutus.php" id="about">About</a>
+    </div>
+    <div id="logInnav" class="sidenav">
+        <a href="../../pages/index/loginPage.php" id="login">Login</a>
+        <a href="../../pages/index/signUp.php" id="signup">Signup</a>
+    </div>
+    <div class="clearfix"></div>
+
+<!--    <div class="col-md-6 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">-->
+        <div class="panel panel-mostPopular" style="margin-top: 20px;">
+            <div class="panel-heading"><h2>Popular pop song</h2></div>
+            <div class="panel-body">
+                <?php
+                require_once('../../config/dbconfig.php');
+                $sqlTest = "select * from table_song where song_rating >= 6 AND song_genre = 'POP' LIMIT 25";
+                $result = $conn->query($sqlTest);
+                while ($row = $result->fetch_object()) {
+                    echo "
+                    <div class=\"grow\" style=\"border-top:1px solid #000;\">
+                    <div id=\"status1\" class=\"status\">►</div>
+                    <div class=\"left\"><br><p>$row->song_name</p></div>
+                    <div class=\"right\"><br><p>03:53</p></div>
+                    <br><br>
+                    <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_directory', 'status1')\">Play</button>
+                    <br>
+                    <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
+                    <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
+                    <p>Album: $row->song_album</p>
+                    </div>
+                    ";
+                }
+                ?>
+            </div>
+        </div>
+
+
+
+        <div class="panel panel-mostPopular" style="margin-top: 20px;">
+            <div class="panel-heading"><h2>Popular R&B song</h2></div>
+            <div class="panel-body">
+                <?php
+                require_once('../../config/dbconfig.php');
+                $sqlTest = "select * from table_song where song_rating >= 6 AND song_genre = 'R&B' LIMIT 25";
+                $result = $conn->query($sqlTest);
+                while ($row = $result->fetch_object()) {
+                    echo "
+                    <div class=\"grow\" style=\"border-top:1px solid #000;\">
+                    <div id=\"status1\" class=\"status\">►</div>
+                    <div class=\"left\"><br><p>$row->song_name</p></div>
+                    <div class=\"right\"><br><p>03:53</p></div>
+                    <br><br>
+                    <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_directory', 'status1')\">Play</button>
+                    <br>
+                    <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
+                    <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
+                    <p>Album: $row->song_album</p>
+                    </div>
+                    ";
+                }
+                ?>
+            </div>
+        </div>
+
     <div class="panel panel-mostPopular" style="margin-top: 20px;">
-        <div class="panel-heading"><h2>Most popular</h2></div>
+        <div class="panel-heading"><h2>Popular rock song</h2></div>
         <div class="panel-body">
             <?php
             require_once('../../config/dbconfig.php');
-            $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 25";
+            $sqlTest = "select * from table_song where song_rating >= 6 AND song_genre = 'Rock' LIMIT 25";
             $result = $conn->query($sqlTest);
             while ($row = $result->fetch_object()) {
                 echo "
@@ -43,7 +128,9 @@
             ?>
         </div>
     </div>
+<!--    </div>-->
 </div>
+
 
 </body>
 
