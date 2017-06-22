@@ -15,13 +15,13 @@ session_start();
     <!-- <link rel="stylesheet" type="text/css" href="css/artists.css"> -->
     <link rel="stylesheet" href="public/vendors/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" />
 </head>
-<body style="max-width: 100%; overflow-x: hidden;">
+<body style="max-width: 100%; height: 110%; overflow-x: hidden;">
 <div id="wrapper">
     <div id="mySidenav" class="sidenav">
         <a href="#" id="home">Home</a>
         <a href="#" id="genres" onclick="openNav()">Genres</a>
         <a href="pages/artistPage.php" id="artists">Artists</a>
-        <a href="#" id="albums">Albums</a>
+        <a href="pages/albumPage.php" id="albums">Albums</a>
         <a href="pages/aboutus.php" id="about">About</a>
     </div>
     <div id="logInnav" class="sidenav">
@@ -114,16 +114,20 @@ session_start();
         <h3 class="artiststext">ARTISTS</h3>
             <?php
             require_once ('config/dbconfig.php');
-            $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
+            $sqlTest = "SELECT * FROM table_song GROUP BY song_artist ORDER BY song_artist DESC";
             $result = $conn->query($sqlTest);
-            echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
+            $i = 0;
+            $song_artist_name = array();
+            echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0; padding: 0;\">";
             while ($row = $result->fetch_object()) {
+                $song_artist_name[$i] = $row->song_artist;
+                $i++;
                 echo "<form action=\"pages/fetch.php\" method=\"post\">";
                 echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\" style='float: left;'>
                                   <div class=\"hovereffect\">";
                                   echo "<img class=\"artists img-responsive\" src=\"$row->song_artist_img_directory\">
                                         <div class=\"overlay1\">
-                                            <h2>$row->song_album</h2>
+                                            <h2>$row->song_artist</h2>
                                             <input type='text' data-id3='$row->song_artist' value='$row->song_artist' id=\"album_name\" hidden>
                                             <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#artist$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
                                                 View...
@@ -132,10 +136,16 @@ session_start();
                             echo "</div>
                            </div>";
                 echo "</form>";
+                if($i >= 8){
+                    break;
+                }
             }
             echo "</div>";
+//            $song_query = "SELECT * FROM table_song ORDER BY song_name WHERE song_artist LIKE '".$row->song_artist."'";
             $result1 = $conn->query($sqlTest);
+            $i = 0;
             while ($row = $result1->fetch_object()){
+                $i++;
                 echo "<div class=\"col-sm-12 modal fade\" id=\"artist$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
                         <div class=\"modal-dialog\" role=\"document\">
                             <div class=\"modal-content\">
@@ -149,15 +159,26 @@ session_start();
                                 </div>
                                 <div class=\"modal-body\">";
                                 echo "<div class=\"list-group\">";
+                                /*$song_query = "SELECT * FROM table_song ORDER BY song_name WHERE song_artist LIKE '".$row->song_artist."'";
+                                $result2 = $conn->query($song_query);
+                                while ($song_row = $result2->fetch_object()) {
+                                    echo "<a href=\"$song_row->song_song_directory\" class=\"list-group-item\">
+                                            <span class='left'>$song_row->song_name</span>
+                                            <span class='right'>03:53</span>
+                                        </a>";
+                                }*/
                                 echo "<a href=\"$row->song_song_directory\" class=\"list-group-item\">
-                                    <span class='left'>$row->song_name</span>
-                                    <span class='right'>03:53</span>
-                                 </a>";
+                                            <span class='left'>$row->song_name</span>
+                                            <span class='right'>03:53</span>
+                                        </a>";
                                 echo "</div>";
                                 echo "</div>
                             </div>
                         </div>
                     </div>";
+                if($i >= 8){
+                    break;
+                }
             }
             ?>
         <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">

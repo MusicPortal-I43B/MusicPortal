@@ -4,7 +4,8 @@ require_once ('../../config/dbconfig.php');
 date_default_timezone_set("Asia/Bangkok");
 $dateEtTime = date("Y-m-d h:i:s");
 $title = $_POST['title'];
-$genre = $_POST['artist'];
+$artist = $_POST['artist'];
+$genre = $_POST['genre'];
 $album = $_POST['album'];
 $songReleaseYear = $_POST['songReleaseYear'];
 $albumReleaseYear = $_POST['albumReleaseYear'];
@@ -17,6 +18,14 @@ $rating = $_POST['rating'];
 $songFileUpload = '';
 $imgAlbumFileUpload = '';
 $imgArtistFileUpload = '';
+
+$songFiletarget = '';
+$imgAlbumFileTarget = '';
+$imgArtistFileTarget = '';
+
+echo $title."', '".$artist."', '".$genre."', '".$album."', '".$songReleaseYear."'
+      , '".$albumReleaseYear."', '".$songFiletarget."', '".$imgArtistFileTarget."', '".$imgAlbumFileTarget."'
+      , '".$rating."', '".$subtitle;
 
 if(filesize($songFile)>0 && filesize($imgAlbumFile)>0 && filesize($imgArtistFile)>0){
     $songFileDir = "public/upload/media/";
@@ -34,6 +43,12 @@ if(filesize($songFile)>0 && filesize($imgAlbumFile)>0 && filesize($imgArtistFile
     $songFileName = time().".$songFileExtension";
     $songFiletarget = $songFileDir.$songFileName;
     $songFileSize = filesize($songFileName);
+
+    if(move_uploaded_file($songFileName, $imgArtistFileTarget)){
+        $imgArtistFileUpload = $imgArtistFileTarget;
+    }else{
+        echo "Song file can't upload";
+    }
 
     //  img album file
     $imgAlbumFileName = time().".$imgAlbumFileExtension";
@@ -73,9 +88,11 @@ if(filesize($songFile)>0 && filesize($imgAlbumFile)>0 && filesize($imgArtistFile
     $photo = $target;
 }
 
-$sql = "INSERT INTO table_song(song_name, song_artist, song_genre, song_album, song_release_year, song_album_release_date
+/*$sql = "INSERT INTO table_song(song_name, song_artist, song_genre, song_album, song_release_year, song_album_release_date
     , song_song_directory, song_artist_img_directory, song_album_img_directory, song_rating, song_title)
-      VALUES('".$_POST["title"]."', '".$_POST["content"]."', '".$dateEtTime."', '".$_POST['username']."')";
+      VALUES('".$title."', '".$artist."', '".$genre."', '".$album."', '".$songReleaseYear."'
+      , '".$albumReleaseYear."', '".$songFiletarget."', '".$imgArtistFileTarget."', '".$imgAlbumFileTarget."'
+      , '".$rating."', '".$subtitle."')";*/
 if(mysqli_query($connect, $sql))
 {
     echo 'Data Inserted';

@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="LiveSearchTest" />
     <orderEntry type="module" module-name="Music Portal Pre Final" />
+    <orderEntry type="module" module-name="Music-Portal" />
   </component>
 </module>

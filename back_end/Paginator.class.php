@@ -18,7 +18,7 @@ class Paginator {
 
     }
 
-    public function getData( $limit = 10, $page = 1 ) {
+    public function getData( $limit, $page ) {
 
         $this->_limit   = $limit;
         $this->_page    = $page;

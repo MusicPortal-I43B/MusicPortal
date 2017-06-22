@@ -5,9 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../public/css/AdminPageStyle.css">
-    <link rel="stylesheet" href="../public/css/styleIndex.css">
+    <link rel="stylesheet" href="../public/css/adminStyle.css">
+    <link rel="stylesheet" href="../public/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/styleIndex.css">
+    <link rel="stylesheet" href="../public/css/animate.css">
+    <link rel="stylesheet" href="../public/vendors/font-awesome/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -46,10 +48,7 @@
     <div class="tab" id="tap">
         <button class="tablinks" onclick="openCity(event, 'ListSong')" id="defaultOpen">List Song</button>
         <button class="tablinks" onclick="openCity(event, 'AddSong')">Add Song</button>
-        <button class="tablinks" onclick="openCity(event, 'EditSong')">Edit Song</button>
-        <button class="tablinks" onclick="openCity(event, 'DeleteSong')">Delete Song</button>
     </div>
-
     <div id="ListSong" class="tabcontent">
         <div style="float: right; margin-top: 25px;">
             <label for="sortby">Sort by: </label>
@@ -62,13 +61,19 @@
         </div>
         <h3>List Song</h3>
         <div style="overflow-x: auto;">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="..." placeholder="Search...">
+                <div class="input-group-btn">
+                <button type="submit" class="btn btn-default">GO!</button>
+                </div>
+            </div>
             <table class="table table-striped table-condensed table-bordered table-rounded">
                 <thead>
                 <tr>
                     <th width="40%">Title</th>
                     <th width="20%">Artist</th>
                     <th width="20%">Album</th>
-                    <th width="8%">Year</th>
+                    <th width="15%">Year</th>
 <!--                    <th width="12%">Delete/Edit</th>-->
                 </tr>
                 </thead>
@@ -78,70 +83,76 @@
 
                 require_once '../config/dbconfig.php';
 
-                $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 1;
+                $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 10;
                 $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
-                $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 1;
-                $query      = "SELECT * FROM table_song order by song_name";
+                $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
+                $query      = "SELECT * FROM table_song ORDER BY song_name";
 
                 $Paginator  = new Paginator( $conn, $query );
 
-                $results    = $Paginator->getData( $page, $limit );
+                $results    = $Paginator->getData( $limit, $page );
                 ?>
+                <div id="result"></div>
                 <?php for( $i = 0; $i < count( $results->data ); $i++ ) : ?>
                     <tr>
-                        <td><?php echo $results->data[$i]['song_name']; ?></td>
-                        <td><?php echo $results->data[$i]['song_artist']; ?></td>
-                        <td><?php echo $results->data[$i]['song_album']; ?></td>
-                        <td><?php echo $results->data[$i]['song_release_year']; ?></td>
+                        <td contenteditable="true"><?php echo $results->data[$i]['song_name']; ?></td>
+                        <td contenteditable="true"><?php echo $results->data[$i]['song_artist']; ?></td>
+                        <td contenteditable="true"><?php echo $results->data[$i]['song_album']; ?></td>
+                        <td contenteditable="true"><?php echo $results->data[$i]['song_release_year']; ?></td>
                         <td>
                             <button class="btn glyphicon glyphicon-trash" id="btn_del" value="<?php echo $results->data[$i]['song_id']; ?>"></button>
-                            <button class="btn glyphicon glyphicon-edit" id="btn_edit" value="<?php echo $results->data[$i]['song_id']; ?>"></button>
                         </td>
                     </tr>
                 <?php endfor; ?>
                 </tbody>
             </table>
         </div>
-        <?php echo $Paginator->createLinks( $links, 'pagination pagination-sm' ); ?>
+        <div style="text-align: center;">
+            <?php echo $Paginator->createLinks( $links, 'pagination pagination-sm' ); ?>
+        </div>
     </div>
     <div id="AddSong" class="tabcontent" style="height: 100%;">
         <h3>Add Song</h3>
-        <form enctype='multipart/form-data' id="addSongForm">
+        <form action="../pages/index/insertSong.php" method="post" enctype='multipart/form-data' id="addSongForm">
             <div class="table-responsive">
                 <table class="addSongTable table table-hover">
                     <tr class="active">
                         <td class="menu">Title</td>
-                        <td id="title" contenteditable="true" placeholder="Song Title ..." data-require="true"></td>
+                        <td><input type="text" id="title"></td>
                     </tr>
                     <tr class="success">
                         <td class="menu">Artist</td>
-                        <td id="artist" contenteditable="true" placeholder="Song Artists ..."></td>
+                        <td><input type="text" id="artist"></td>
                     </tr>
                     <tr class="active">
                         <td class="menu">Genre</td>
-                        <td id="genre" contenteditable="true" placeholder="Song Genre ..."></td>
+                        <td><input type="text" id="genre"></td>
                     </tr>
                     <tr class="warning">
                         <td class="menu">Album</td>
-                        <td id="album" contenteditable="true" placeholder="Song Album ..."></td>
+                        <td><input type="text" id="album"></td>
                     </tr>
                     <tr class="active">
                         <td class="menu">Song release</td>
-                        <td id="song-release-year" contenteditable="true" placeholder="0000"></td>
+                        <td><input type="text" id="songReleaseYear"></td>
                     </tr>
                     <tr class="danger">
                         <td class="menu">Album release</td>
-                        <td id="album-release-year" contenteditable="true" placeholder="0000-00-00"></td>
+                        <td><input type="text" id="albumReleaseYear" name="albumReleaseYear"></td>
                     </tr>
                     <tr class="active">
                         <td class="menu">Subtitle</td>
-                        <td id="subtitle" contenteditable="true" placeholder="Song Subtitle ..."></td>
+                        <td><input type="text" id="subtitle"></td>
                     </tr>
                     <tr class="info">
                         <td class="menu">Rating</td>
                         <td>
                             <select name="rating" id="rating">
-                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </td>
                     </tr>
@@ -155,18 +166,12 @@
                     <input type="file" id="songFile">
                 </div>
             </div>
-            <button class="btn btn-success" type="submit" id="btn-add" onclick="myFunction()">Save</button>
+            <button class="btn btn-success" type="submit">Save</button>
         </form>
     </div>
-    <div id="snackbar">The song is added into databases successful...</div>
-    <div id="EditSong" class="tabcontent">
-        <h3>Edit Song</h3>
-
-    </div>
-    <div id="DeleteSong" class="tabcontent">
-        <h3>Delete Song</h3>
-
-    </div>
+    <div id="snackbarAdd">The song is added into databases successful...</div>
+    <div id="snackbarDelete">The song is deleted from databases successful...</div>
+    <div id="snackbarEdit">The song is edited successful...</div>
 </div>
 <script src="../public/vendors/jquery/jquery-3.1.1.min.js"></script>
 <script src="../public/vendors/bootstrap/js/bootstrap.min.js"></script>
@@ -210,7 +215,7 @@
                     data:{title:title, artist:artist, genre:genre, album:album, songReleaseYear:songReleaseYear
                         , albumReleaseYear:albumReleaseYear, subtitle:subtitle, songFile:songFile, imgAlbumFile:imgAlbumFile
                         , imgArtistFile:imgArtistFile, rating:rating},
-                    dataType:"text",
+                    dataType:{"text", "file"},
                     success:function(data)
                     {
                         alert(data);
@@ -221,6 +226,32 @@
                 alert("Please, Input all of input contents");
 //                $('#addSongForm').reset();
             }
+        });
+        function edit_data(id, title, artist, genre, album, songReleaseYear
+            , albumReleaseYear, subtitle, songFile, imgAlbumFile
+            , imgArtistFile, rating)
+        {
+            $.ajax({
+                url:"edit.php",
+                method:"POST",
+                data:{id:id, title:title, artist:artist, genre:genre, album:album, songReleaseYear:songReleaseYear
+                    , albumReleaseYear:albumReleaseYear, subtitle:subtitle, songFile:songFile, imgAlbumFile:imgAlbumFile
+                    , imgArtistFile:imgArtistFile, rating:rating},
+                dataType:{"text", "file"},
+                success:function(data){
+                    alert(data);
+                }
+            });
+        }
+        $(document).on('blur', '.first_name', function(){
+            var id = $(this).data("id1");
+            var first_name = $(this).text();
+            edit_data(id, first_name, "first_name");
+        });
+        $(document).on('blur', '.last_name', function(){
+            var id = $(this).data("id2");
+            var last_name = $(this).text();
+            edit_data(id,last_name, "last_name");
         });
         $(document).on('click', '.btn_delete', function(){
             var id=$(this).data("id3");
@@ -241,9 +272,21 @@
     }
 </script>
 
+<script src="../public/js/script.js"></script>
+
 <script>
-    function myFunction() {
-        var x = document.getElementById("snackbar")
+    function myAddFunction() {
+        var x = document.getElementById("snackbarAdd")
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    function myDeleteFunction() {
+        var x = document.getElementById("snackbarAdd")
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    function myEditFunction() {
+        var x = document.getElementById("snackbarAdd")
         x.className = "show";
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }

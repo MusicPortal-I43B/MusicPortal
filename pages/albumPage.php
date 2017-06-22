@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../public/css/animate.css">
     <link rel="stylesheet" href="../public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../public/css/songStyle.css">
-<!--    <link rel="stylesheet" href="../public/css/moduleStyle.css">-->
+    <!--    <link rel="stylesheet" href="../public/css/moduleStyle.css">-->
     <title>Document</title>
 </head>
 
@@ -90,7 +90,7 @@
     </div>
 
     <div class="col-md-offset-1 container" style="width: 80%;">
-        <h3 class="artiststext">ARTISTS</h3>
+        <h3 class="artiststext">ALBUMS</h3>
         <?php
         require_once ('../config/dbconfig.php');
 
@@ -99,7 +99,7 @@
         $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 25;
         $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
         $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
-        $query      = "SELECT * FROM table_song GROUP BY song_artist ORDER BY song_artist";
+        $query      = "SELECT * FROM table_song GROUP BY song_album ORDER BY song_album";
 
         $Paginator  = new Paginator( $conn, $query );
 
@@ -107,21 +107,21 @@
 
         $song_artist_name = array();
 
-        echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
+        echo "<div class=\"scrollmenu col-md-12 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
         ?>
         <?php for( $i = 0; $i < count( $results->data ); $i++ ) {
             $song_artist_name[$i] = $results->data[$i]['song_artist'];
-            echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\" style='float: left;'>
+            echo "<div class=\"blog col-md-1 col-sm-1 col-xs-6\" style='float: left;'>
                     <div class=\"hovereffect\">";
-            echo "<img class=\"artists img-responsive\" src=\"../".$results->data[$i]['song_artist_img_directory']."\">
+            echo "<img class=\"artists img-responsive\" src=\"../".$results->data[$i]['song_album_img_directory']."\">
                         <div class=\"overlay1\">
-                            <h2>" . $results->data[$i]['song_artist'] . "</h2>
-                            <input type='text' data-id3=\"".$results->data[$i]['song_artist']."\" value=\"".$results->data[$i]['song_artist']."\" id=\"artist_name\" hidden>
+                            <h2>" . $results->data[$i]['song_album'] . "</h2>
+                            <input type='text' data-id3=\"".$results->data[$i]['song_album']."\" value=\"".$results->data[$i]['song_album']."\" id=\"artist_name\" hidden>
                             <a class=\"info\" data-toggle=\"modal\" data-target=\"#artist".$results->data[$i]['song_id']."\" data-whatever=\"@mdo\">
                                 View...
                             </a>
                         </div>";
-                echo "</div>
+            echo "</div>
                     </div>";
         }
         echo "</div>";
@@ -132,29 +132,29 @@
                         <div class=\"modal-content\">
                             <div class=\"modal-header\">
                                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
-                                <div style='float: left;'><img src=\"../".$results->data[$i]['song_artist_img_directory']."\" alt='' style='width: 100px;'></div>
+                                <div style='float: left;'><img src=\"../".$results->data[$i]['song_album_img_directory']."\" alt='' style='width: 100px;'></div>
                                 <div style='float: left;'>
-                                    <h4 class=\"modal-title\" id=\"noteLabel\">&nbsp;".$results->data[$i]['song_artist']."</h4>
-                                    <h5>&nbsp;Last song release: ".$results->data[$i]['song_release_year']."</h5>
+                                    <h4 class=\"modal-title\" id=\"noteLabel\">&nbsp;".$results->data[$i]['song_album']."</h4>
+                                    <h5>&nbsp;Release: ".$results->data[$i]['song_album_release_date']."</h5>
                                 </div>
                             </div>
-                            <div class=\"modal-body\">";/*
-            $query_song = "SELECT * FROM table_song ORDER BY song_name WHERE song_artist = '" . $results->data[$i]['song_artist'] . "'";
-            $PaginatorSong  = new Paginator( $conn, $query_song );
+                            <div class=\"modal-body\">";
+//            $query_song = "SELECT * FROM table_song ORDER BY song_name WHERE song_album = '" . $results->data[$i]['song_album'] . "'";
+            /*$PaginatorSong  = new Paginator( $conn, $query_song );
             $song_results = $PaginatorSong->getData( $limit, $page );
-                        echo "<div class=\"list-group\">";
-                        for( $i = 0; $i < count( $song_results->data ); $i++ ) {
-                            echo "<a href=\"../".$song_results->data[$i]['song_song_directory']."\" class=\"list-group-item\">
+            echo "<div class=\"list-group\">";
+            for( $i = 0; $i < count( $song_results->data ); $i++ ) {
+                echo "<a href=\"../".$song_results->data[$i]['song_song_directory']."\" class=\"list-group-item\">
                                     <span class='left'>".$song_results->data[$i]['song_name']."</span>
                                     <span class='right'>03:53</span>
                                 </a>";
-                        }*/
-                            echo "<a href=\"../".$results->data[$i]['song_song_directory']."\" class=\"list-group-item\">
-                                    <span class='left'>".$results->data[$i]['song_name']."</span>
-                                    <span class='right'>03:53</span>
-                                </a>";
-                    echo "</div>";
-                echo "</div>
+            }*/
+                    echo "<a href=\"../".$results->data[$i]['song_song_directory']."\" class=\"list-group-item\">
+                            <span class='left'>".$results->data[$i]['song_name']."</span>
+                            <span class='right'>03:53</span>
+                        </a>";
+            echo "</div>";
+            echo "</div>
                     </div>
                 </div>
               </div>";
