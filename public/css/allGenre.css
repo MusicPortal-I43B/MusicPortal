@@ -1,24 +1,41 @@
-body {
-    /*background-image: url("elegant.jpg") !important;*/
-    background-attachment: fixed;
-    height: 2500px;
-    max-width: 85%;
-    overflow-x: hidden;
+.audio-player{
+    width: 100%;
+    position: relative;
+    left: 40%;
 }
 
-html, body {
-    height: 100%;
+.next-back-button{
+    left: 40%;
+    /*width: 400px;*/
+    position: relative;
 }
 
-html {
-    display: table;
-    margin: auto;
-}
 
-body {
-    display: table-cell;
-    vertical-align: middle;
-}
+
+
+
+
+/*body {*/
+    /*!*background-image: url("elegant.jpg") !important;*!*/
+    /*background-attachment: fixed;*/
+    /*height: 2500px;*/
+    /*max-width: 85%;*/
+    /*overflow-x: hidden;*/
+/*}*/
+
+/*html, body {*/
+    /*height: 100%;*/
+/*}*/
+
+/*html {*/
+    /*display: table;*/
+    /*margin: auto;*/
+/*}*/
+
+/*body {*/
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
+/*}*/
 
 
 h3.artists {
