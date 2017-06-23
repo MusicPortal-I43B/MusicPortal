@@ -33,8 +33,9 @@
 
             //echo $row->song_directory;
             echo "<h1>$row->song_name</h1>";
-            echo "<img class=\"cover\" src=\"$row->song_album_img_directory\" alt=\"\">";
-            echo "<audio id=\"audio-player\" src=\"$row->song_directory\" type=\"audio/mp3\" controls=\"controls\"></audio>";
+            //echo "<img class=\"cover\" src=\"$row->song_album_img_directory\" alt=\"\">";
+            echo "<audio id=\"audio-player\" src=\"$row->song_song_directory\" type=\"audio/mp3\" controls=\"controls\"></audio>";
+            echo $row->song_title;
         ?>
 
 
@@ -59,6 +60,8 @@
 		});
 	</script>
 	<!-- end Audio Player HTML -->
+
+
 
 </body>
 
