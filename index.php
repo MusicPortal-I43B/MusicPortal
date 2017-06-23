@@ -5,184 +5,437 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/indexStyle.css">
     <link rel="stylesheet" href="public/css/animate.css">
     <link rel="stylesheet" href="public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/songStyle.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/artists.css"> -->
+    <link rel="stylesheet" href="public/vendors/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" />
+    <!-- Audio Player CSS & Scripts -->
+    <script src="public/js/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="public/css/AudioPlayerStyle.css" media="screen">
     <!-- Point to external css file -->
 </head>
-
-<body>
+<body style="max-width: 100%; overflow-x: hidden;">
+<!--<div class="audio-player">
+    <h1>Demo - Preview Song</h1>
+    <img class="cover" src="public/uploads/album_img/shapeofyou.jpg" alt="" style="width: 110px; height: 114px;">
+    <audio id="audio-player" src="public/uploads/media/shapeofyou.mp3" type="audio/mp3" controls="controls"></audio>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause','volume','progress'],
+            audioVolume: 'horizontal',
+            audioWidth: 400,
+            audioHeight: 120
+        });
+    });
+</script>-->
 <div id="wrapper">
-    <!--Navigation Bar section-->
-    <nav class="navbar navbar-default" style="width: 100%;position: fixed;z-index: 2">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand glyphicon glyphicon-home" aria-hidden="true" href="index.html"></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genres <span class="caret"></span></a>
-                        <ul class="dropdown-menu wow fadeInDown" data-wow-duration="0.6s" data-wow-delay="0.1s">
-                            <li><a href="data/genres/rock.html">Rock</a></li>
-                            <li><a href="data/genres/pop.html">Pop</a></li>
-                            <li><a href="data/genres/dance.html">Dance</a></li>
-                            <li><a href="data/genres/hiphop.html">Hip Hop</a></li>
-                            <!-- <li role="separator" class="divider"></li> -->
-                            <!-- <li><a href="./genres/other.html">Other</a></li> -->
-                        </ul>
-                    </li>
-                    <li><a href="data/song.html">Songs <span class="sr-only">(current)</span></a></li>
-                    <li><a href="data/albums.html">Albums </a></li>
-                    <li><a href="data/artists.html">Artists </a></li>
-                    <li>
-                        <!-- Link trigger modal -->
-                        <a href="#" data-toggle="modal" data-target=".aboutus">About us</a>
-                    </li>
-                </ul>
-                <!--Search Bar section-->
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <span class="input-group-btn">
-				        <button class="btn btn-default" type="button">Go!</button>
-				      </span>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" type="button">Login</button>
-                </form>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <!-- Div for about us -->
-    <div class="modal fade aboutus" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="container" style="padding: 10px; margin-left: 4%;">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
-                        <div class="hovereffect">
-                            <img class="artists img-responsive" src="public/img/aboutus/nhean.jpg">
-                            <div class="overlay1">
-                                <h2>Sam An Tipputhinhean</h2>
-                                <a class="info" href="https://www.facebook.com/tipputhynhean">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
-                        <div class="hovereffect">
-                            <img class="artists img-responsive" src="public/img/aboutus/nadin.jpg">
-                            <div class="overlay1">
-                                <h2>POUTH Nadin</h2>
-                                <a class="info" href="https://www.facebook.com/nadin.puth">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
-                        <div class="hovereffect">
-                            <img class="artists img-responsive" src="public/img/aboutus/sovath.jpg">
-                            <div class="overlay1">
-                                <h2>Phat Sovath</h2>
-                                <a class="info" href="https://www.facebook.com/phath.sovath">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
-                        <div class="hovereffect">
-                            <img class="artists img-responsive" src="public/img/aboutus/vanna.jpg">
-                            <div class="overlay1">
-                                <h2>POUNG Sovanna</h2>
-                                <a class="info" href="https://www.facebook.com/vanna.1996">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="home">Home</a>
+        <div class="dropdown">
+            <a href="./pages/genres/allGenre.php" id="genres">Genres</a>
+            <!--<div class="dropdown-content" id="myDropdown">
+                <a href="#">Rock</a>
+                <a href="#">Pop</a>
+                <a href="#">Class</a>
+                <a href="#">Dance</a>
+            </div>-->
         </div>
+        <a href="pages/artistPage.php" id="artists">Artists</a>
+        <a href="#" id="albums">Albums</a>
+        <a href="pages/aboutus.php" id="about">About</a>
+    </div>
+    <div id="logInnav" class="sidenav">
+        <a href="pages/index/loginPage.php" id="login">Login</a>
+        <a href="pages/index/signUp.php" id="signup">Signup</a>
     </div>
     <div class="clearfix"></div>
+    <div style="width: 100%; margin-left: auto; margin-right: auto;">
+        <!--Div for slide show-->
+        <div>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000" style="width: 100%; height: 100%">
+                        <a href="data/song.html">
+                            <img src="public/img/slide/img1.jpg" alt="..." style="margin: auto; width: 100%;">
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>Let the world know</h3>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                        <a href="data/song.html">
+                            <img src="public/img/slide/img2.jpg" alt="..." style="margin: auto; width: 100%;">
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>The End Is Where We Begin</h3>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                        <a href="data/song.html">
+                            <img src="public/img/slide/img3.jpg" alt="..." style="margin: auto; width: 100%;">
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>In The End</h3>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
+                        <a href="data/song.html">
+                            <img src="public/img/slide/img4.jpg" alt="..." style="margin: auto; width: 100%;">
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>Losing My Mind</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Indicators -->
+                <ol class="carousel-indicators" style="z-index: 1">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                </ol>
 
-    <!--Div for slide show-->
-    <div style="margin-top: 50px;">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Controls left or right -->
+                <a class="left carousel-control wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" href="#carousel-example-generic" role="button" data-slide="prev" style="background: none;">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control wow slideInLeft" href="#carousel-example-generic" data-wow-duration="1.5s" data-wow-delay="0.1s" role="button" data-slide="next" style="background: none;">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--Div for artists block-->
+    <div class="col-md-offset-1 container">
+        <h3 class="artiststext">ARTISTS</h3>
+            <?php
+            require_once ('config/dbconfig.php');
+            $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
+            $result = $conn->query($sqlTest);
+            echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
+            while ($row = $result->fetch_object()) {
+                echo "<form action=\"pages/fetch.php\" method=\"post\">";
+                echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\" style='float: left;'>
+                                  <div class=\"hovereffect\">";
+                                  echo "<img class=\"artists img-responsive\" src=\"$row->song_artist_img_directory\">
+                                        <div class=\"overlay1\">
+                                            <h2>$row->song_album</h2>
+                                            <input type='text' data-id3='$row->song_artist' value='$row->song_artist' id=\"album_name\" hidden>
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                                View...
+                                            </a>
+                                        </div>";
+                            echo "</div>
+                           </div>";
+                echo "</form>";
+            }
+            echo "</div>";
+            $result1 = $conn->query($sqlTest);
+            while ($row = $result1->fetch_object()){
+                echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                        <div class=\"modal-dialog\" role=\"document\">
+                            <div class=\"modal-content\">
+                                <div class=\"modal-header\">
+                                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
+                                    <div style='float: left;'><img src='$row->song_artist_img_directory' alt='' style='width: 100px;'></div>
+                                    <div style='float: left;'>
+                                        <h4 class=\"modal-title\" id=\"noteLabel\">&nbsp;$row->song_artist</h4>
+                                        <h5>&nbsp;Release: $row->song_release_year</h5>
+                                    </div>
+                                </div>
+                                <div class=\"modal-body\">";
+                                echo "<div class=\"list-group\">";
+                                echo "<a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                    <span class='left'>$row->song_name</span>
+                                    <span class='right'>03:53</span>
+                                 </a>";
+                                echo "</div>";
+                                echo "</div>
+                            </div>
+                        </div>
+                    </div>";
+            }
+            ?>
+        <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
+            <h3 class="artiststext" style="margin-top: 0;">BILLBOARD</h3>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#day" aria-controls="day" role="tab" data-toggle="tab">Today</a></li>
+                <li role="presentation"><a href="#week" aria-controls="week" role="tab" data-toggle="tab">Week</a></li>
+                <li role="presentation"><a href="#month" aria-controls="month" role="tab" data-toggle="tab">Month</a></li>
+            </ul>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
-                    <a href="data/song.html">
-                        <img src="public/img/slide/img1.jpg" alt="..." style="margin: auto;">
-                    </a>
-                    <div class="carousel-caption">
-                        <h3>Let the world know</h3>
-                    </div>
+            <!-- Tab panes billboard -->
+            <div class="tab-content wow fadeInDown" style="margin: 0px;">
+                <audio src="" controls id="audioPlayer" style="width: 100%;"></audio>
+                <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
+                    <img src="public/img/slide/img1.jpg" style="width: 100%">
+                    <ul id="playlist" style="list-style: none; padding: 0px;">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 30";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">$row->song_name</a></li>";
+                        }
+                        ?>
+                    </ul>
                 </div>
-                <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
-                    <a href="data/song.html">
-                        <img src="public/img/slide/img2.jpg" alt="..." style="margin: auto;">
-                    </a>
-                    <div class="carousel-caption">
-                        <h3>The End Is Where We Begin</h3>
-                    </div>
+                <div role="tabpanel" class="scrollmenulist tab-pane" id="week">
+                    <img src="public/img/slide/img2.jpg" style="width: 100%">
+                    <ul id="playlist" style="list-style: none; padding: 0px;">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 30";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">$row->song_name</a></li>";
+                        }
+                        ?>
+                    </ul>
                 </div>
-                <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
-                    <a href="data/song.html">
-                        <img src="public/img/slide/img3.jpg" alt="..." style="margin: auto;">
-                    </a>
-                    <div class="carousel-caption">
-                        <h3>In The End</h3>
-                    </div>
-                </div>
-                <div class="item wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" data-interval="2000">
-                    <a href="data/song.html">
-                        <img src="public/img/slide/img4.jpg" alt="..." style="margin: auto;">
-                    </a>
-                    <div class="carousel-caption">
-                        <h3>Losing My Mind</h3>
-                    </div>
+                <div role="tabpanel" class="scrollmenulist tab-pane" id="month">
+                    <img src="public/img/slide/img3.jpg" style="width: 100%">
+                    <ul id="playlist" style="list-style: none; padding: 0px;">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 30";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">$row->song_name</a></li>";
+                        }
+                        ?>
+                    </ul>
                 </div>
             </div>
-            <!-- Indicators -->
-            <ol class="carousel-indicators" style="z-index: 1">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-            </ol>
-
-            <!-- Controls left or right -->
-            <a class="left carousel-control wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only wow slideInLeft">Previous</span>
-            </a>
-            <a class="right carousel-control wow slideInLeft" href="#carousel-example-generic" data-wow-duration="1.5s" data-wow-delay="0.1s" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
     </div>
 
-    <div style="width: 100%; margin-left: auto; margin-right: auto;">
-        <!--Div for slide show-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="public/vendors/jquery/jquery-3.1.1.min.js"></script>
-        <script src="public/vendors/bootstrap/js/bootstrap.min.js"></script>
-        <script src="public/vendors/jquery/wow.min.js"></script>
-        <script>
-            new WOW().init();
-        </script>
+    <!--Div for albums block-->
+    <div class="col-md-offset-1 container">
+        <h3 class="artiststext">ALBUMS</h3>
+                <?php
+                require_once ('config/dbconfig.php');
+                $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
+                $result = $conn->query($sqlTest);
+                $id = '';
+                echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
+                while ($row = $result->fetch_object()) {
+                    echo "<form action=\"pages/fetch.php\" method=\"post\">";
+                        echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\" style='float: left;'>
+                                  <div class=\"hovereffect\">";
+                                echo "<img class=\"artists img-responsive\" src=\"$row->song_album_img_directory\">
+                                        <div class=\"overlay1\">
+                                            <h2>$row->song_album</h2>
+                                            <input type='text' data-id3='$row->song_album' value='$row->song_album' id=\"album_name\" hidden>
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                                View...
+                                            </a>
+                                        </div>";
+                        echo "</div>
+                              </div>";
+                    echo "</form>";
+                }
+                echo "</div>";
+                $result1 = $conn->query($sqlTest);
+                while ($row = $result1->fetch_object()){
+                        echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                        <div class=\"modal-dialog\" role=\"document\">
+                            <div class=\"modal-content\">
+                                <div class=\"modal-header\">
+                                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
+                                    <div style='float: left;'><img src='$row->song_album_img_directory' alt='' style='width: 100px;'></div>
+                                    <div style='float: left;'>
+                                        <h4 class=\"modal-title\" id=\"noteLabel\">&nbsp;$row->song_album</h4>
+                                        <h5>&nbsp;Release: $row->song_album_release_date</h5>
+                                    </div>
+                                </div>
+                                <div class=\"modal-body\">";
+                                    $sqlSong = "select * from table_song where song_album = ".$row->song_album." order by song_name";
+                                    echo "<div class=\"list-group\">";
+                    /*$songRes = $conn->query($sqlSong);
+                    while($song = $songRes->fetch_object()){*/
+                                        echo "<a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                            <!--<span class='left'>►</span>-->
+                                            <span class='left'>$row->song_name</span>
+                                            <span class='right'>03:53</span>
+                                         </a>";
+                                    //}
+                                    echo "</div>";
+                                echo "</div><!--
+                                <div class=\"modal-footer\">
+                                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>";
+                }
+            ?>
+        <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
+            <h3 class="artiststext" style="margin-top: 0;">TOP ALBUMS</h3>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#aday" aria-controls="aday" role="tab" data-toggle="tab">Today</a></li>
+                <li role="presentation"><a href="#aweek" aria-controls="aweek" role="tab" data-toggle="tab">Week</a></li>
+                <li role="presentation"><a href="#amonth" aria-controls="amonth" role="tab" data-toggle="tab">Month</a></li>
+            </ul>
+            <!-- Tab panes billboard -->
+            <div class="tab-content wow fadeInDown" style="margin: 0px; height: 250px;">
+                <div role="tabpanel" class="scrollmenulist tab-pane active" id="aday" style="height: 250px;">
+                    <ul id="playlist" style="list-style: none; padding: 0px;">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a class=\"list-group-item\" data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                        <img src=\"$row->song_album_img_directory\" style=\"width: 50px;\"> $row->song_album
+                                        </a>
+                                  </li>";
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="scrollmenulist tab-pane" id="aweek" style="height: 250px;">
+                    <ul id="playlist" style="list-style: none; padding: 0px;">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                        <img src=\"$row->song_album_img_directory\" style=\"width: 50px;\"> $row->song_album
+                                        </a>
+                                  </li>";
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="scrollmenulist tab-pane" id="amonth" style="height: 250px;">
+                    <ul id="playlist" style="list-style: none; padding: 0px;">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<li><a href=\"$row->song_song_directory\" class=\"list-group-item\">
+                                        <img src=\"$row->song_album_img_directory\" style=\"width: 50px;\"> $row->song_album
+                                        </a>
+                                  </li>";
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-offset-1 container">
+         <h3 class="artiststext">SONGS</h3>
+        <div class="col-md-12 col-sm-12 col-xs-12" style="margin: 0px; padding: 0px">
+            <!-- Most popular -->
+            <div class="col-md-6 col-sm-12 col-xs-12 wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
+                <div class="panel panel-mostPopular" style="margin-top: 20px;">
+                    <div class="panel-heading"><h2>Most popular</h2></div>
+                    <div class="panel-body">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 25";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<div class=\"grow\" style=\"border-top:1px solid #000;\">
+                                    <div id=\"status1\" class=\"status\">►</div>
+                                    <div class=\"left\"><br><p>$row->song_name</p></div>
+                                    <div class=\"right\"><br><p>03:53</p></div>
+                                    <br><br>
+                                    <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_song_directory', 'status1')\">Play</button>
+                                    <br>
+                                    <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
+                                    <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
+                                    <p>Album: $row->song_album</p>
+                                </div>";
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New song panel -->
+            <div class="col-md-6 col-sm-12 col-xs-12 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
+                <div class="panel panel-newSong" style="margin-top: 20px;">
+                    <div class="panel-heading"><h2>New song</h2></div>
+                    <div class="panel-body">
+                        <?php
+                        require_once ('config/dbconfig.php');
+                        $sqlTest = "select * from table_song where song_rating >= 7 LIMIT 25";
+                        $result = $conn->query($sqlTest);
+                        while ($row = $result->fetch_object()){
+                            echo "<div class=\"grow\" style=\"border-top:1px solid #000;\">
+                                    <div id=\"status1\" class=\"status\">►</div>
+                                    <div class=\"left\"><br><p>$row->song_name</p></div>
+                                    <div class=\"right\"><br><p>03:53</p></div>
+                                    <br><br>
+                                    <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_song_directory', 'status1')\">Play</button>
+                                    <br>
+                                    <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
+                                    <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
+                                    <p>Album: $row->song_album</p>
+                                </div>";
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p style="text-align: center;">
+            <br><br>
+            Copyright @ music-portal.com All right reserved
+            <br>
+            Disclaimer: This site does not store any files on its server. All contents are provide by non-affiliated third parties.
+        </p>
+    </div><!-- #footer -->
+</div>
+
+<script src="public/vendors/jquery/jquery-3.1.1.min.js"></script>
+<script src="public/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="public/js/script.js"></script>
+<script src="public/vendors/jquery/wow.min.js"></script>
+<script>
+    audioPlayer();
+</script>
+<script>
+    new WOW().init();
+</script>
+<script>
+    document.getElementById('playerFrame').style.visibility = "hidden";
+
+    function changeSource(location, statusID){
+        var audio = document.getElementById('player');
+        var str1 = "./";
+        var str2 = ".mp3";
+        var res = str1.concat(location);
+        res = res.concat(str2);
+        audio.src = res;
+        audio.play();
+        document.getElementById('playerFrame').style.visibility = "visible";
+
+        var elems = document.getElementsByClassName('status');
+        for(var i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }
+        document.getElementById(statusID).style.display = 'inline';
+    }
+</script>
+
 </body>
 </html>

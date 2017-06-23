@@ -7,7 +7,7 @@ if(isset($_POST['username']) && $_POST['username']!= ''){
 
     require_once('salt.php');
     $password = crypt($password, KEY_SALT);
-    $sql = "select * from users where username='$username' and password='$password'";
+    $sql = "select * from table_user where user_name='$username' and user_password='$password'";
     $result = $conn->query($sql);
     if($result->num_rows > 0){
         $row = $result->fetch_object();
