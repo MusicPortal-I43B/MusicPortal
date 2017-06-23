@@ -20,10 +20,32 @@
 
 	<!-- Audio Player HTML -->
 	<div class="audio-player">
-		<h1>Demo - Preview Song</h1>
-		<img class="cover" src="../public/img/audioPlayerImg/cover.png" alt="">
-		<audio id="audio-player" src="../public/uploads/media/demo.mp3" type="audio/mp3" controls="controls"></audio>
+
+
+        <?php
+            $songID = $_POST["songID"];
+
+            require_once ('../config/dbconfig.php');
+            $sql = "select * from table_song where song_id ='" . $songID . "'";
+            //echo $sql;
+            $result = $conn->query($sql);
+            $row = $result->fetch_object();
+
+            //echo $row->song_directory;
+            echo "<h1>$row->song_name</h1>";
+            echo "<img class=\"cover\" src=\"$row->song_album_img_directory\" alt=\"\">";
+            echo "<audio id=\"audio-player\" src=\"$row->song_directory\" type=\"audio/mp3\" controls=\"controls\"></audio>";
+        ?>
+
+
+
+
 	</div>
+
+<!--    <div class="next-back-button">-->
+<!--        <button type="button" style="width: 198px">Backward</button>-->
+<!--        <button type="button" style="width: 198px">Forward</button>-->
+<!--    </div>-->
 
 	<script>
 		$(document).ready(function() {

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  	<title>Music Portal</title>
+	  	<meta charset="utf-8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/bootstrap/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+		<link rel="stylesheet" href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/css/animate.css">
+		<link rel="stylesheet" href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/css/artists.css">
+		<!-- Point to external css file -->
+	</head>
+
+	<body style="height:2000px">
+	<div id="wrapper">
+		<!--Navigation Bar section-->
+		<nav class="navbar navbar-default" style="width: 100%;position: fixed;z-index: 2">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand glyphicon glyphicon-home" aria-hidden="true" href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/index.html"></a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		      	<li class="dropdown">
+		          <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genres <span class="caret"></span></a>
+		          <ul class="dropdown-menu wow fadeInDown" data-wow-duration="0.6s" data-wow-delay="0.1s">
+		            <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/genres/rock.html">Rock</a></li>
+				    <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/genres/pop.html">Pop</a></li>
+				    <li><a href="./genres/classic.html">Dance</a></li>
+				    <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/genres/hiphop.html">Hip Hop</a></li>
+<!-- 				    <li role="separator" class="divider"></li>
+				    <li><a href="./genres/other.html">Other</a></li> -->
+		          </ul>
+		        </li>
+		        <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/song.html">Songs <span class="sr-only">(current)</span></a></li>
+		        <li class="active"><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/albums.html">Albums </a></li>
+		        <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/artists.html">Artists </a></li>
+		        <li>
+		        	<!-- Link trigger modal -->
+					<a href="#" data-toggle="modal" data-target=".aboutus">About us</a>
+				</li>
+		      </ul>
+		      <!--Search Bar section-->
+		      <form class="navbar-form navbar-right">
+		      	<div class="form-group">
+				    <div class="input-group">
+				      <input type="text" class="form-control" placeholder="Search">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">Go!</button>
+				      </span>
+				    </div>
+				  </div>
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<!-- Div for about us -->
+		<!-- Div for about us -->
+		<div class="modal fade aboutus" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="container" style="padding: 10px; margin-left: 4%;">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
+						    <div class="hovereffect">
+						        <img class="artists img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/image/aboutus/nhean.jpg">
+						        <div class="overlay1">
+						           <h2>Sam An Tipputhinhean</h2>
+						           <a class="info" href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/artists.html">View Profile</a>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
+						    <div class="hovereffect">
+						        <img class="artists img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/image/aboutus/nadin.jpg">
+						        <div class="overlay1">
+						           <h2>POUTH Nadin</h2>
+						           <a class="info" href="https://www.facebook.com/nadin.puth">View Profile</a>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
+						    <div class="hovereffect">
+						        <img class="artists img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/image/aboutus/sovath.jpg">
+						        <div class="overlay1">
+						           <h2>Phat Sovath</h2>
+						           <a class="info" href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/artists.html">View Profile</a>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 blog">
+						    <div class="hovereffect">
+						        <img class="artists img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/image/aboutus/vanna.jpg">
+						        <div class="overlay1">
+						           <h2>POUNG Sovanna</h2>
+						           <a class="info" href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/artists.html">View Profile</a>
+						        </div>
+						    </div>
+						</div>
+					</div>
+					<div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				    </div>
+			    </div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+
+		<!-- Albums -->
+
+		<div class="container" style="padding: 10px; margin-top: 50px;">
+			<h3 class="artiststext" style="padding: 25px;">Albums list</h3>
+
+			<!-- Lists  -->
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 artists">
+			    <div class="hovereffect">
+			        <img class="img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Back%20To%20Bedlam/Covers/front.jpg" alt="">
+			            <div class="overlay">
+			                <h2>Back to bedlam</h2>
+							<p>
+								<a role="button" data-toggle="collapse" href="#back" aria-expanded="false" aria-controls="back">VIEW MORE</a>
+							</p>
+			            </div>
+			    </div>
+			    </div>
+			    <div class="collapse" id="back">
+				  <div class="well" style="margin: 0; padding: 0;">
+				    <!-- <audio src="" controls id="audioPlayer" style="width: 100%;"></audio> -->
+				    <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
+				    	<ul id="playlist" style="list-style: none; padding: 0px;">
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Back%20To%20Bedlam/01%20%20High.mp3" class="list-group-item">01 High</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Back%20To%20Bedlam/02%20You're%20Beautiful.mp3" class="list-group-item">02 You're Beautiful</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Back%20To%20Bedlam/03%20Wiseman.mp3" class="list-group-item">03 Wiseman</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Back%20To%20Bedlam/04%20Goodbye%20My%20Lover.mp3" class="list-group-item">04 Goodbye My Lover</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Back%20To%20Bedlam/05%20Tears%20And%20Rain.mp3" class="list-group-item">05 Tears And Rain</a></li>
+						</ul>
+				    </div>
+				  </div>
+				<!-- </div> -->
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 artists">
+			    <div class="hovereffect">
+			        <img class="img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Bangarang/cover.jpg" alt="">
+			            <div class="overlay">
+			                <h2>Bangarang</h2>
+							<p>
+								<a role="button" data-toggle="collapse" href="#bangarang" aria-expanded="false" aria-controls="bangarang" id="select">VIEW MORE</a>
+							</p>
+			            </div>
+			    </div>
+			    </div>
+			    <div class="collapse" id="bangarang">
+				  <div class="well" style="margin: 0; padding: 0;">
+				    <!-- <audio src="./albums/Back To Bedlam/02 Bangarang.m4a" controls id="audioPlayer" style="width: 100%;"></audio> -->
+				    <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
+				    	<ul id="playlist" style="list-style: none; padding: 0px;">
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Bangarang/01%20Right%20In%20(Original%20Mix).m4a" class="list-group-item">01 Right In (Original Mix)</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Bangarang/02%20Bangarang.m4a" class="list-group-item">02 Bangarang</a></li>
+						  <li><a href="./src/music/Bangarang/03 Breakn' A Sweat (Original Mix).m4a" class="list-group-item">03 Breakn' A Sweat (Original Mix)</a></li>
+						  <li><a href="./src/music/Bangarang/04 The Devil's Den (Original Mix).m4a" class="list-group-item">04 The Devil's Den (Original Mix)</a></li>
+						  <li><a href="./src/music/Bangarang/05 Right On Time (Original Mix).m4a" class="list-group-item">05 Right On Time (Original Mix)</a></li>
+						</ul>
+				    </div>
+				  </div>
+				<!-- </div> -->
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 artists">
+			    <div class="hovereffect">
+			        <img class="img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Collage/Collage%20EP%201.jpg" alt="">
+			            <div class="overlay">
+			                <h2>Collage EP</h2>
+							<p>
+								<a role="button" data-toggle="collapse" href="#collage" aria-expanded="false" aria-controls="collage">VIEW MORE</a>
+							</p>
+			            </div>
+			    </div>
+			    </div>
+			    <div class="collapse" id="collage">
+				  <div class="well" style="margin: 0; padding: 0;">
+				    <!-- <audio src="" controls id="audioPlayer" style="width: 100%;"></audio> -->
+				    <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
+				    	<ul id="playlist" style="list-style: none; padding: 0px;">
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Collage/01%20Setting%20Fires.m4a" class="list-group-item">01 Setting Fires</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Collage/02%20All%20We%20Know%20(feat.%20Phoebe%20Ryan).m4a" class="list-group-item">02 All We Know (feat. Phoebe Ryan)</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Collage/03%20Closer.m4a" class="list-group-item">03 Closer</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Collage/04%20Inside%20Out.m4a" class="list-group-item">04 Inside Out</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Collage/05%20Dont%20Let%20Me%20Down.m4a" class="list-group-item">05 Dont Let Me Down</a></li>
+						</ul>
+				    </div>
+				  </div>
+				<!-- </div> -->
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 artists">
+			    <div class="hovereffect">
+			        <img class="img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Nine%20Track%20Mind/cover.jpeg" alt="">
+			            <div class="overlay">
+			                <h2>Nine Track Mind</h2>
+							<p>
+								<a role="button" data-toggle="collapse" href="#nine" aria-expanded="false" aria-controls="nine">VIEW MORE</a>
+							</p>
+			            </div>
+			    </div>
+			    </div>
+			    <div class="collapse" id="nine">
+				  <div class="well" style="margin: 0; padding: 0;">
+				    <!-- <audio src="" controls id="audioPlayer" style="width: 100%;"></audio> -->
+				    <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
+				    	<ul id="playlist" style="list-style: none; padding: 0px;">
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Nine%20Track%20Mind/01%20One%20Call%20Away.m4a" class="list-group-item">01 One Call Away</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Nine%20Track%20Mind/02%20Dangerously.m4a" class="list-group-item">02 Dangerously</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Nine%20Track%20Mind/03%20Marvin%20Gaye%20(feat.%20Meghan%20Trainor.m4a" class="list-group-item">03 Marvin Gaye (feat. Meghan Trainor)</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Nine%20Track%20Mind/04%20Losing%20My%20Mind.m4a" class="list-group-item">04 Losing My Mind</a></l>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Nine%20Track%20Mind/05.m4a" class="list-group-item">05 We Don_t Talk Anymore</a></li>
+						</ul>
+				    </div>
+				  </div>
+				<!-- </div> -->
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 artists">
+			    <div class="hovereffect">
+			        <img class="img-responsive" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Starboy/front.jpg" alt="">
+			            <div class="overlay">
+			                <h2>Starboy</h2>
+							<p>
+								<a role="button" data-toggle="collapse" href="#starboy" aria-expanded="false" aria-controls="starboy">VIEW MORE</a>
+							</p>
+			            </div>
+			    </div>
+			    </div>
+			<div class="collapse" id="starboy">
+				  <div class="well" style="margin: 0; padding: 0;">
+				    <!-- <audio src="" controls id="audioPlayer" style="width: 100%;"></audio> -->
+				    <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
+				    	<ul id="playlist" style="list-style: none; padding: 0px;">
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Starboy/01%20-%20Starboy.m4a" class="list-group-item">01 - Starboy</a></li>
+						  <li><a href="./src/music/Starboy/02 - Party Monster.mp3" class="list-group-item">02 - Party Monster</a></li>
+						  <li><a href="./src/music/Starboy/03 - False Alarm.mp3" class="list-group-item">03 - False Alarm</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/Starboy/04%20-%20Reminder.m4a" class="list-group-item">04 - Reminder</a></li>
+						  <li><a href="./src/music/Starboy/05 - Rockin'.mp3" class="list-group-item">05 - Rockin</a></li>
+						</ul>
+				    </div>
+				  </div>
+				<!-- </div> -->
+
+			</div>
+			<!-- </div> -->
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 artists">
+			    <div class="hovereffect">
+			        <img class="img-fluid" src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/The%20End%20Is%20Where%20We%20Begin/Folder.jpg" alt="Responsive image">
+			            <div class="overlay">
+			                <h2>The End Is Where We Begin</h2>
+							<p>
+								<a role="button" data-toggle="collapse" href="#theend" aria-expanded="false" aria-controls="theend">VIEW MORE</a>
+							</p>
+			            </div>
+			    </div>
+			    </div>
+			<div class="collapse" id="theend">
+				  <div class="well" style="margin: 0; padding: 0;">
+				    <!-- <audio src="" controls id="audioPlayer" style="width: 100%;"></audio> -->
+				    <div role="tabpanel" class="scrollmenulist tab-pane active" id="day">
+				    	<ul id="playlist" style="list-style: none; padding: 0px;">
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/The%20End%20Is%20Where%20We%20Begin/01.m4a" class="list-group-item">The introduction</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/The%20End%20Is%20Where%20We%20Begin/02.m4a" class="list-group-item">We are</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/The%20End%20Is%20Where%20We%20Begin/03.m4a" class="list-group-item">Light Up the Sky</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/The%20End%20Is%20Where%20We%20Begin/04.m4a" class="list-group-item">The End Is Where We Begin</a></li>
+						  <li><a href="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/src/music/The%20End%20Is%20Where%20We%20Begin/05.m4a" class="list-group-item">Let the Spaarks Sky</a></li>
+						</ul>
+				    </div>
+				  </div>
+				</div>
+				
+			</div>		
+		<!-- </div> -->
+
+		<div id="playerFrame">
+			<audio src="" controls id="audioPlayer" style="width: 100%;"></audio>
+		</div>
+
+		<div id="footer">
+			<p style="text-align: center;">
+				<br><br>
+				Copyright @ music-portal.com All right reserved
+				<br>
+				Disclaimer: This site does not store any files on its server. All contents are provide by non-affiliated third parties.
+			</p>
+		</div><!-- #footer -->
+
+</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/bootstrap/js/bootstrap.min.js"></script>
+		<script src="js/script.js"></script>
+		<script src="../../../../../Users/Vanna/Desktop/Music%20Portal%20Pre%20Final/data/js/wow.min.js"></script>
+        <script>
+			audioPlayer();
+		</script>
+        <script>
+            new WOW().init();
+        </script>
+
+        <script>
+        	document.getElementById("select").click();
+        </script>
+
+	</body>
+</html>

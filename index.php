@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,48 +5,55 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="public/css/styleIndex.css">
+    <link rel="stylesheet" type="text/css" href="public/css/indexStyle.css">
     <link rel="stylesheet" href="public/css/animate.css">
     <link rel="stylesheet" href="public/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/songStyle.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/artists.css"> -->
     <link rel="stylesheet" href="public/vendors/bootstrap-select-1.12.2/dist/css/bootstrap-select.min.css" />
+    <!-- Audio Player CSS & Scripts -->
+    <script src="public/js/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="public/css/AudioPlayerStyle.css" media="screen">
+    <!-- Point to external css file -->
 </head>
-<body style="max-width: 100%; height: 110%; overflow-x: hidden;">
+<body style="max-width: 100%; overflow-x: hidden;">
+<!--<div class="audio-player">
+    <h1>Demo - Preview Song</h1>
+    <img class="cover" src="public/uploads/album_img/shapeofyou.jpg" alt="" style="width: 110px; height: 114px;">
+    <audio id="audio-player" src="public/uploads/media/shapeofyou.mp3" type="audio/mp3" controls="controls"></audio>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause','volume','progress'],
+            audioVolume: 'horizontal',
+            audioWidth: 400,
+            audioHeight: 120
+        });
+    });
+</script>-->
 <div id="wrapper">
     <div id="mySidenav" class="sidenav">
         <a href="#" id="home">Home</a>
-        <a href="#" id="genres" onclick="openNav()">Genres</a>
+        <div class="dropdown">
+            <a href="./pages/genres/allGenre.php" id="genres">Genres</a>
+            <!--<div class="dropdown-content" id="myDropdown">
+                <a href="#">Rock</a>
+                <a href="#">Pop</a>
+                <a href="#">Class</a>
+                <a href="#">Dance</a>
+            </div>-->
+        </div>
         <a href="pages/artistPage.php" id="artists">Artists</a>
-        <a href="pages/albumPage.php" id="albums">Albums</a>
+        <a href="#" id="albums">Albums</a>
         <a href="pages/aboutus.php" id="about">About</a>
     </div>
     <div id="logInnav" class="sidenav">
-        <?php
-        if(isset($_SESSION['username']) && $_SESSION['username'] == 'admin'){
-            echo "<a href=\"pages/index/loginPage.php\" id=\"login\">Goto Admin Page</a>";
-            echo "<a href=\"pages/index/Logout.php\" id=\"logout\">Log Out</a>";
-            echo "<a id=\"addSong\" data-toggle=\"modal\" data-target=\"#addNewSong\" style=\"cursor: pointer;\">Add Song</a>";
-        }else if(isset($_SESSION['username']) && $_SESSION['username'] != 'admin'){
-            echo "<a href=\"pages/index/Logout.php\" id=\"logout\">Log Out</a>";
-        }else{
-            echo "<a href=\"pages/index/loginPage.php\" id=\"login\">Login</a>
-                  <a href=\"pages/index/signUp.php\" id=\"signup\">Sign up</a>";
-        }
-        ?>
+        <a href="pages/index/loginPage.php" id="login">Login</a>
+        <a href="pages/index/signUp.php" id="signup">Signup</a>
     </div>
     <div class="clearfix"></div>
-
-    <!--  side for genres  -->
-    <div id="myNav" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="overlay-content">
-            <a href="#">Pop</a>
-            <a href="#">Dance</a>
-            <a href="#">Hip Hip</a>
-            <a href="#">Rock</a>
-        </div>
-    </div>
     <div style="width: 100%; margin-left: auto; margin-right: auto;">
         <!--Div for slide show-->
         <div>
@@ -114,39 +118,29 @@ session_start();
         <h3 class="artiststext">ARTISTS</h3>
             <?php
             require_once ('config/dbconfig.php');
-            $sqlTest = "SELECT * FROM table_song GROUP BY song_artist ORDER BY song_artist DESC";
+            $sqlTest = "select * from table_song where song_rating >= 7 order by song_rating DESC LIMIT 8";
             $result = $conn->query($sqlTest);
-            $i = 0;
-            $song_artist_name = array();
-            echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0; padding: 0;\">";
+            echo "<div class=\"scrollmenu col-md-9 col-sm-12 col-xs-12 wow slideInLeft\" data-wow-duration=\"1.5s\" data-wow-delay=\"0.1s\" style=\"margin: 0px; padding: 0px;\">";
             while ($row = $result->fetch_object()) {
-                $song_artist_name[$i] = $row->song_artist;
-                $i++;
                 echo "<form action=\"pages/fetch.php\" method=\"post\">";
                 echo "<div class=\"blog col-md-1 col-sm-1 col-xs-1\" style='float: left;'>
                                   <div class=\"hovereffect\">";
                                   echo "<img class=\"artists img-responsive\" src=\"$row->song_artist_img_directory\">
                                         <div class=\"overlay1\">
-                                            <h2>$row->song_artist</h2>
+                                            <h2>$row->song_album</h2>
                                             <input type='text' data-id3='$row->song_artist' value='$row->song_artist' id=\"album_name\" hidden>
-                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#artist$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
                                                 View...
                                             </a>
                                         </div>";
                             echo "</div>
                            </div>";
                 echo "</form>";
-                if($i >= 8){
-                    break;
-                }
             }
             echo "</div>";
-//            $song_query = "SELECT * FROM table_song ORDER BY song_name WHERE song_artist LIKE '".$row->song_artist."'";
             $result1 = $conn->query($sqlTest);
-            $i = 0;
             while ($row = $result1->fetch_object()){
-                $i++;
-                echo "<div class=\"col-sm-12 modal fade\" id=\"artist$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
                         <div class=\"modal-dialog\" role=\"document\">
                             <div class=\"modal-content\">
                                 <div class=\"modal-header\">
@@ -159,26 +153,15 @@ session_start();
                                 </div>
                                 <div class=\"modal-body\">";
                                 echo "<div class=\"list-group\">";
-                                /*$song_query = "SELECT * FROM table_song ORDER BY song_name WHERE song_artist LIKE '".$row->song_artist."'";
-                                $result2 = $conn->query($song_query);
-                                while ($song_row = $result2->fetch_object()) {
-                                    echo "<a href=\"$song_row->song_song_directory\" class=\"list-group-item\">
-                                            <span class='left'>$song_row->song_name</span>
-                                            <span class='right'>03:53</span>
-                                        </a>";
-                                }*/
                                 echo "<a href=\"$row->song_song_directory\" class=\"list-group-item\">
-                                            <span class='left'>$row->song_name</span>
-                                            <span class='right'>03:53</span>
-                                        </a>";
+                                    <span class='left'>$row->song_name</span>
+                                    <span class='right'>03:53</span>
+                                 </a>";
                                 echo "</div>";
                                 echo "</div>
                             </div>
                         </div>
                     </div>";
-                if($i >= 8){
-                    break;
-                }
             }
             ?>
         <div class="hiden col-md-3 col-sm-5 wow slideInRight" data-wow-duration="1.5s" data-wow-delay="0.1s">
@@ -253,7 +236,7 @@ session_start();
                                         <div class=\"overlay1\">
                                             <h2>$row->song_album</h2>
                                             <input type='text' data-id3='$row->song_album' value='$row->song_album' id=\"album_name\" hidden>
-                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#album$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
+                                            <a class=\"info\" type='submit' name='submit' data-toggle=\"modal\" data-target=\"#note$row->song_id\" data-whatever=\"@mdo\" id=\"new_note\">
                                                 View...
                                             </a>
                                         </div>";
@@ -264,7 +247,7 @@ session_start();
                 echo "</div>";
                 $result1 = $conn->query($sqlTest);
                 while ($row = $result1->fetch_object()){
-                        echo "<div class=\"col-sm-12 modal fade\" id=\"album$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
+                        echo "<div class=\"col-sm-12 modal fade\" id=\"note$row->song_id\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"noteLabel\">       
                         <div class=\"modal-dialog\" role=\"document\">
                             <div class=\"modal-content\">
                                 <div class=\"modal-header\">
@@ -453,17 +436,6 @@ session_start();
         document.getElementById(statusID).style.display = 'inline';
     }
 </script>
-
-<script>
-    function openNav() {
-        document.getElementById("myNav").style.height = "100%";
-    }
-
-    function closeNav() {
-        document.getElementById("myNav").style.height = "0%";
-    }
-</script>
-
 
 </body>
 </html>
