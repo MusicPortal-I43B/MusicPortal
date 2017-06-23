@@ -77,8 +77,12 @@
                             <div class=\"left\"><br><p>$row->song_name</p></div>
                             <div class=\"right\"><br><p>03:53</p></div>
                             <br><br>
-                            <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_directory', 'status1')\">Play</button>
-                            <br>
+                            
+                            <form method=\"post\" action=\"../../pages/audioPlayer.php\">
+                            <button type=\"submit\" class=\"btn btn-info\" value='$row->song_id' name=\"songID\">Play</button>
+                            </form>
+                            
+                            
                             <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
                             <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
                             <p>Album: $row->song_album</p>
@@ -104,8 +108,12 @@
                             <div class=\"left\"><br><p>$row->song_name</p></div>
                             <div class=\"right\"><br><p>03:53</p></div>
                             <br><br>
-                            <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_directory', 'status1')\">Play</button>
-                            <br>
+                            
+                            <form method=\"post\" action=\"../../pages/audioPlayer.php\">
+                            <button type=\"submit\" class=\"btn btn-info\" value='$row->song_id' name=\"songID\">Play</button>
+                            </form>
+                            
+                            
                             <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
                             <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
                             <p>Album: $row->song_album</p>
@@ -138,7 +146,7 @@
                             <button type=\"submit\" class=\"btn btn-info\" value='$row->song_id' name=\"songID\">Play</button>
                             </form>
                             
-                            <br>
+                            
                             <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
                             <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
                             <p>Album: $row->song_album</p>
@@ -164,8 +172,12 @@
                                 <div class=\"left\"><br><p>$row->song_name</p></div>
                                 <div class=\"right\"><br><p>03:53</p></div>
                                 <br><br>
-                                <button type=\"button\" class=\"btn btn-info\" onclick=\"changeSource('$row->song_directory', 'status1')\">Play</button>
-                                <br>
+                                
+                                <form method=\"post\" action=\"../../pages/audioPlayer.php\">
+                            	<button type=\"submit\" class=\"btn btn-info\" value='$row->song_id' name=\"songID\">Play</button>
+                            	</form>
+                                
+                                
                                 <div class=\"left\"><br><p>Artist: $row->song_artist</p></div>
                                 <div class=\"right\"><br><p>Release year: $row->song_release_year</p></div>
                                 <p>Album: $row->song_album</p>
